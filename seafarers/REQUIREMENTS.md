@@ -4,9 +4,8 @@
 
 ### Ships Exist
 
-#### Ships have an (x,y) position
+#### Ships have an (x,y) position that defaults to (0,0)
 
-#### Ships have a heading: greater than or equal to 0 and less than 360 (in degrees)
+#### Ships have a heading that defaults to 0: greater than or equal to 0 and less than 360 (in degrees), values outside of this range should wrap around
 
-
-* Islands Exist
+#### Ships have a speed that defaults to 1: greater than or equal to 0 and less than or equal to 1. Values outside of this range should clamp.
