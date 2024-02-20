@@ -30,15 +30,15 @@ class Ship:
         return self.heading * math.pi / 180
 
     def can_see(self, island):
-        return self.__distance_to(island) <= Ship.MAXIMUM_VISIBILITY
+        return self.distance_to(island) <= Ship.MAXIMUM_VISIBILITY
 
-    def __distance_to(self, island):
+    def distance_to(self, island):
         return math.sqrt(
             (self.x - island.x) * (self.x - island.x) +
             (self.y - island.y) * (self.y - island.y))
 
     def can_dock(self, island):
-        return self.__distance_to(island) <= Ship.MAXIMUM_DOCK_DISTANCE
+        return self.distance_to(island) <= Ship.MAXIMUM_DOCK_DISTANCE
 
     def dock(self, island):
         self.docked_at = island

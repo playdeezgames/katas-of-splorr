@@ -105,3 +105,15 @@ def test_ship_can_get_heading_to_island(island_x, island_y, expected_heading):
     island = seafarers.Island(island_x, island_y)
     actual = sut.heading_to(island)
     assert actual == expected_heading
+
+
+@pytest.mark.parametrize("island_x, island_y, expected_distance", [
+    (0, 10, 10),
+    (10, 0, 10),
+    (-10, 0, 10),
+])
+def test_ship_can_get_distance_to_island(island_x, island_y, expected_distance):
+    sut = seafarers.Ship()
+    island = seafarers.Island(island_x, island_y)
+    actual = sut.distance_to(island)
+    assert actual == expected_distance

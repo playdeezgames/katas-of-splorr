@@ -24,4 +24,6 @@
 
 #### A Ship can determine a valid heading that will lead to a given island
 
+#### A Ship can determine a distance to a given island
+
  
