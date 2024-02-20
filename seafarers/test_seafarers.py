@@ -117,9 +117,19 @@ def test_ship_can_get_distance_to_island(island_x, island_y, expected_distance):
     assert actual == expected_distance
 
 
-@pytest.mark.parametrize("moves_to_make", [1])
+@pytest.mark.parametrize("moves_to_make", [1, 10])
 def test_ship_counts_moves_made(moves_to_make):
     sut = seafarers.Ship()
     for move in range(0, moves_to_make):
         sut.move()
     assert sut.moves == moves_to_make
+
+
+@pytest.mark.parametrize("visit_count", [1, 10])
+def test_ship_counts_visits(visit_count):
+    sut = seafarers.Ship()
+    island = seafarers.Island(0, 0)
+    for visit in range(0, visit_count):
+        sut.dock(island)
+    actual = sut.count_visits(island)
+    assert actual == visit_count

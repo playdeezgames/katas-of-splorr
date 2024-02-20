@@ -42,11 +42,19 @@ class Ship:
         return self.distance_to(island) <= Ship.MAXIMUM_DOCK_DISTANCE
 
     def dock(self, island):
+        self.visits.append(island)
         self.docked_at = island
 
     def heading_to(self, island):
         degrees = math.atan2(island.x - self.x, island.y - self.y) * 180 / math.pi
         return self.__normalize_heading(degrees)
+
+    def count_visits(self, island):
+        counter = 0
+        for visit in self.visits:
+            if island == visit:
+                counter += 1
+        return counter
 
     def __init__(self):
         self.x = 0
@@ -55,3 +63,4 @@ class Ship:
         self.speed = 1
         self.docked_at = None
         self.moves = 0
+        self.visits = []
