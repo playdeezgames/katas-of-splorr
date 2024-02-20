@@ -3,7 +3,7 @@ class Ship:
         self.heading = new_heading - (new_heading // 360) * 360
 
     def set_speed(self, new_speed):
-        self.speed = new_speed
+        self.speed = min(max(new_speed, 0), 1)
 
     def __init__(self):
         self.x = 0

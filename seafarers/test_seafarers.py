@@ -34,7 +34,7 @@ def test_ship_should_have_speed():
     assert sut.speed == 1
 
 
-@pytest.mark.parametrize("given_speed, expected_speed", [(0, 0)])
+@pytest.mark.parametrize("given_speed, expected_speed", [(0, 0), (-1, 0), (2, 1)])
 def test_ship_should_set_speed_with_limits(given_speed, expected_speed):
     sut = seafarers.Ship()
     sut.set_speed(given_speed)
