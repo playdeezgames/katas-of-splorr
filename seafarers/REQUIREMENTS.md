@@ -21,3 +21,5 @@
 #### A Ship can "dock" with an island that is no more than 1 unit away
 
 #### A Ship cannot move when docked
+
+#### A Ship can determine a valid heading that will lead to a given island

@@ -12,29 +12,40 @@ class Ship:
     MAXIMUM_DOCK_DISTANCE = 1
 
     def set_heading(self, new_heading):
-        self.heading = new_heading - (new_heading // 360) * 360
+        self.heading = self.__normalize_heading(new_heading)
+
+    @staticmethod
+    def __normalize_heading(new_heading):
+        return new_heading - (new_heading // 360) * 360
 
     def set_speed(self, new_speed):
         self.speed = min(max(new_speed, 0), 1)
 
     def move(self):
         if self.docked_at is None:
-            self.y += math.cos(self.heading * math.pi / 180) * self.speed
-            self.x += math.sin(self.heading * math.pi / 180) * self.speed
+            self.y += math.cos(self.__to_radians()) * self.speed
+            self.x += math.sin(self.__to_radians()) * self.speed
 
+    def __to_radians(self):
+        return self.heading * math.pi / 180
 
     def can_see(self, island):
+        return self.__distance_to(island) <= Ship.MAXIMUM_VISIBILITY
+
+    def __distance_to(self, island):
         return math.sqrt(
             (self.x - island.x) * (self.x - island.x) +
-            (self.y - island.y) * (self.y - island.y)) <= Ship.MAXIMUM_VISIBILITY
+            (self.y - island.y) * (self.y - island.y))
 
     def can_dock(self, island):
-        return math.sqrt(
-            (self.x - island.x) * (self.x - island.x) +
-            (self.y - island.y) * (self.y - island.y)) <= Ship.MAXIMUM_DOCK_DISTANCE
+        return self.__distance_to(island) <= Ship.MAXIMUM_DOCK_DISTANCE
 
     def dock(self, island):
         self.docked_at = island
+
+    def heading_to(self, island):
+        degrees = math.atan2(island.x - self.x, island.y - self.y) * 180 / math.pi
+        return self.__normalize_heading(degrees)
 
     def __init__(self):
         self.x = 0
