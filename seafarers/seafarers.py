@@ -42,7 +42,7 @@ class Ship:
         return self.distance_to(island) <= Ship.MAXIMUM_DOCK_DISTANCE
 
     def dock(self, island):
-        self.visits.append(island)
+        self.visits.append((island, self.moves))
         self.docked_at = island
 
     def heading_to(self, island):
@@ -52,7 +52,7 @@ class Ship:
     def count_visits(self, island):
         counter = 0
         for visit in self.visits:
-            if island == visit:
+            if island == visit[0]:
                 counter += 1
         return counter
 
@@ -64,3 +64,13 @@ class Ship:
         self.docked_at = None
         self.moves = 0
         self.visits = []
+
+    def last_visit(self, island):
+        counter = None
+        for visit in self.visits:
+            if island == visit[0]:
+                if counter is None:
+                    counter = visit[1]
+                else:
+                    counter = max(counter, visit[1])
+        return counter

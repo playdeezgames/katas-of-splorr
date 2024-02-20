@@ -133,3 +133,13 @@ def test_ship_counts_visits(visit_count):
         sut.dock(island)
     actual = sut.count_visits(island)
     assert actual == visit_count
+
+
+@pytest.mark.parametrize("initial_moves", [10, 5])
+def test_ship_tracks_visit_moves(initial_moves):
+    sut = seafarers.Ship()
+    for move in range(0, initial_moves):
+        sut.move()
+    island = seafarers.Island(sut.x, sut.y)
+    sut.dock(island)
+    assert initial_moves == sut.last_visit(island)

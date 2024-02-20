@@ -28,4 +28,6 @@
 
 #### A Ship counts the number of moves it has made
 
-#### A Ship tracks how many visits it has made to a given island. A visit is counted as docking with the island. 
+#### A Ship tracks how many visits it has made to a given island. A visit is counted as docking with the island.
+
+#### A Ship tracks which turn it last visited an island.
