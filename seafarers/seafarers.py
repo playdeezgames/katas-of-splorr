@@ -23,6 +23,7 @@ class Ship:
 
     def move(self):
         if self.docked_at is None:
+            self.moves += 1
             self.y += math.cos(self.__to_radians()) * self.speed
             self.x += math.sin(self.__to_radians()) * self.speed
 
@@ -53,3 +54,4 @@ class Ship:
         self.heading = 0
         self.speed = 1
         self.docked_at = None
+        self.moves = 0

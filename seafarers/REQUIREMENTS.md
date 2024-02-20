@@ -26,4 +26,6 @@
 
 #### A Ship can determine a distance to a given island
 
+#### A Ship counts the number of moves it has made
+
  
