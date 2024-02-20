@@ -9,6 +9,7 @@ class Island:
 
 class Ship:
     MAXIMUM_VISIBILITY = 10
+    MAXIMUM_DOCK_DISTANCE = 1
 
     def set_heading(self, new_heading):
         self.heading = new_heading - (new_heading // 360) * 360
@@ -24,6 +25,11 @@ class Ship:
         return math.sqrt(
             (self.x - island.x) * (self.x - island.x) +
             (self.y - island.y) * (self.y - island.y)) <= Ship.MAXIMUM_VISIBILITY
+
+    def can_dock(self, island):
+        return math.sqrt(
+            (self.x - island.x) * (self.x - island.x) +
+            (self.y - island.y) * (self.y - island.y)) <= Ship.MAXIMUM_DOCK_DISTANCE
 
     def __init__(self):
         self.x = 0

@@ -73,3 +73,14 @@ def test_ship_should_determine_island_visibility(island_x, island_y, expected_vi
     island = seafarers.Island(island_x, island_y)
     actual = sut.can_see(island)
     assert actual == expected_visibility
+
+
+@pytest.mark.parametrize("island_x, island_y, expected_dockworthiness", [
+    (0, 0, True),
+    (2, 0, False),
+])
+def test_ship_can_dock_with_island(island_x, island_y, expected_dockworthiness):
+    sut = seafarers.Ship()
+    island = seafarers.Island(island_x, island_y)
+    actual = sut.can_dock(island)
+    assert actual == expected_dockworthiness
