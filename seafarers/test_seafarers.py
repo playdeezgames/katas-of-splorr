@@ -84,3 +84,11 @@ def test_ship_can_dock_with_island(island_x, island_y, expected_dockworthiness):
     island = seafarers.Island(island_x, island_y)
     actual = sut.can_dock(island)
     assert actual == expected_dockworthiness
+
+def test_ship_when_docked_cannot_move():
+    sut = seafarers.Ship()
+    island = seafarers.Island(0, 0)
+    sut.dock(island)
+    sut.move()
+    assert sut.x == 0
+    assert sut.y == 0

@@ -18,8 +18,10 @@ class Ship:
         self.speed = min(max(new_speed, 0), 1)
 
     def move(self):
-        self.y += math.cos(self.heading * math.pi / 180) * self.speed
-        self.x += math.sin(self.heading * math.pi / 180) * self.speed
+        if self.docked_at is None:
+            self.y += math.cos(self.heading * math.pi / 180) * self.speed
+            self.x += math.sin(self.heading * math.pi / 180) * self.speed
+
 
     def can_see(self, island):
         return math.sqrt(
@@ -31,8 +33,12 @@ class Ship:
             (self.x - island.x) * (self.x - island.x) +
             (self.y - island.y) * (self.y - island.y)) <= Ship.MAXIMUM_DOCK_DISTANCE
 
+    def dock(self, island):
+        self.docked_at = island
+
     def __init__(self):
         self.x = 0
         self.y = 0
         self.heading = 0
         self.speed = 1
+        self.docked_at = None
