@@ -6,5 +6,7 @@
 
 #### Ships have an (x,y) position
 
+#### Ships have a heading: greater than or equal to 0 and less than 360 (in degrees)
+
 
 * Islands Exist
