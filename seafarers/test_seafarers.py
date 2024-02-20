@@ -1,3 +1,5 @@
+import math
+
 import pytest
 
 import seafarers
@@ -40,3 +42,15 @@ def test_ship_should_set_speed_with_limits(given_speed, expected_speed):
     sut.set_speed(given_speed)
     actual_speed = sut.speed
     assert actual_speed == expected_speed
+
+
+@pytest.mark.parametrize("given_speed, given_heading, expected_x, expected_y", [
+    (1, 0, 0, 1),
+    (1, 90, 1, 6.123233995736766e-17)])
+def test_ship_should_move_according_to_heading_and_speed(given_speed, given_heading, expected_x, expected_y):
+    sut = seafarers.Ship()
+    sut.set_heading(given_heading)
+    sut.set_speed(given_speed)
+    sut.move()
+    assert sut.x == expected_x
+    assert sut.y == expected_y
