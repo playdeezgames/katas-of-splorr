@@ -9,6 +9,7 @@ class Island:
 
 class Ship:
     MAXIMUM_VISIBILITY = 10
+
     def set_heading(self, new_heading):
         self.heading = new_heading - (new_heading // 360) * 360
 

@@ -17,3 +17,6 @@
 #### Islands have an (x,y) position that must be defined when the island is created
 
 #### A Ship can "see" an island that is no more than 10 units away
+
+#### A Ship can "dock" with an island that is no more than 1 unit away
+
