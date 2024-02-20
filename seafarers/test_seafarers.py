@@ -54,3 +54,11 @@ def test_ship_should_move_according_to_heading_and_speed(given_speed, given_head
     sut.move()
     assert sut.x == expected_x
     assert sut.y == expected_y
+
+
+def test_island_should_exist():
+    given_x = 1
+    given_y = 2
+    sut = seafarers.Island(given_x, given_y)
+    assert sut.x == given_x
+    assert sut.y == given_y
