@@ -57,3 +57,9 @@ def test_ship_should_move_half(given_heading, expected_x, expected_y):
     sut.move()
     assert sut.x == expected_x
     assert sut.y == expected_y
+
+
+def test_islands_should_exist():
+    sut = seafarers.Island(0, 0)
+    assert sut.x == 0
+    assert sut.y == 0
