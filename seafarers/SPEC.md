@@ -11,6 +11,11 @@
       * is an integer!
       * values outside of this range should "wrap around"
         * i.e. 32 == 0, 33 == 1, -1 == 31, etc
+    * Ships can turn
+      * use a relative number of compass points to turn by
+      * greater than 0 is a "starboard turn"
+      * less than 0 is a "port turn"
+      * heading should be maintained to be >= 0 and < 32
     * Ships have a speed
       * defaults to 1
       * greater than or equal to 0 
@@ -30,7 +35,8 @@
     * A Ship cannot move when docked
     * A Ship must "undock" to move again once it has docked 
     * A Ship can determine a rough heading that will lead to a given island
-      * Need only return compass points 0 (north), 4 (north-east), 8 (east), 12 (south-east), 16 (south), 20 (southwest), 24 (west), or 28 (northwest) 
+      * Need only return compass points 0 (north), 4 (north-east), 8 (east), 12 (south-east), 16 (south), 20 (southwest), 24 (west), or 28 (northwest)
+      * Bonus points for the closest compass point
     * A Ship can determine a distance to a given island
     * A Ship counts the number of moves it has made
     * A Ship tracks how many visits it has made to a given island. 
