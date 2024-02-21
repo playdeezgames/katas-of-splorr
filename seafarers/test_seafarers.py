@@ -30,3 +30,10 @@ def test_ship_should_test_speed(given_speed, expected_speed):
     sut = seafarers.Ship()
     sut.set_speed(given_speed)
     assert sut.speed == expected_speed
+
+
+def test_ship_should_move():
+    sut = seafarers.Ship()
+    sut.move()
+    assert sut.x == 0
+    assert sut.y == 1

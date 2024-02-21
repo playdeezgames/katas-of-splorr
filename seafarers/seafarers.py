@@ -10,3 +10,6 @@ class Ship:
 
     def set_speed(self, new_speed):
         self.speed = max(0, min(1, new_speed))
+
+    def move(self):
+        self.y = 1
