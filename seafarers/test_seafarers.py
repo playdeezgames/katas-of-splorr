@@ -43,3 +43,17 @@ def test_ship_should_move(given_heading, expected_x, expected_y):
     sut.move()
     assert sut.x == expected_x
     assert sut.y == expected_y
+
+
+@pytest.mark.parametrize("given_heading, expected_x, expected_y", [
+    (0, 0, 1/2),
+    (1, 0.1951/2, 0.9808/2),
+    (27, -0.8315/2, 0.5556/2),
+    ])
+def test_ship_should_move_half(given_heading, expected_x, expected_y):
+    sut = seafarers.Ship()
+    sut.set_speed(0.5)
+    sut.set_heading(given_heading)
+    sut.move()
+    assert sut.x == expected_x
+    assert sut.y == expected_y

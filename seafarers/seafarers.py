@@ -82,5 +82,5 @@ class Ship:
         ]
 
     def move(self):
-        self.y += Ship.DELTA_YS[self.heading]
-        self.x += Ship.DELTA_XS[self.heading]
+        self.y += Ship.DELTA_YS[self.heading] * self.speed
+        self.x += Ship.DELTA_XS[self.heading] * self.speed
