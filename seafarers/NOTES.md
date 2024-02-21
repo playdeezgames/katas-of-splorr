@@ -98,3 +98,5 @@ AL was also not a trig person, so hit the same snag during the move test.
 Use compass points instead of degrees?
 
 Floating point rounding errors required strange test fixture values like ```6.123233995736766e-17```
+
+Distance formula rounding?
