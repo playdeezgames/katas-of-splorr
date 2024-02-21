@@ -19,3 +19,7 @@ def test_ship_should_set_heading(given_heading, expected_heading):
     sut = seafarers.Ship()
     sut.set_heading(given_heading)
     assert sut.heading == expected_heading
+
+def test_ship_should_have_speed():
+    sut = seafarers.Ship()
+    assert sut.speed == 1
