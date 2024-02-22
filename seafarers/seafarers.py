@@ -2,6 +2,9 @@ import math
 
 
 class Ship:
+    def __filter_islands(islands, is_island_visible):
+        return [island for island in islands if is_island_visible(island)]
+
     def __init__(self):
         self.x = 0
         self.y = 0
@@ -91,21 +94,22 @@ class Ship:
         self.y += Ship.DELTA_YS[self.heading] * self.speed
         self.x += Ship.DELTA_XS[self.heading] * self.speed
 
-    def is_island_visible(self, island):
+    def __distance_to_island(self, island):
         delta_x = island.x - self.x
         delta_y = island.y - self.y
-        return math.sqrt(delta_x * delta_x + delta_y * delta_y) <= 10
+        return math.sqrt(delta_x * delta_x + delta_y * delta_y)
+
+    def is_island_visible(self, island):
+        return self.__distance_to_island(island) <= 10
 
     def filter_visible_islands(self, islands):
-        return [island for island in islands if self.is_island_visible(island)]
+        return Ship.__filter_islands(islands, self.is_island_visible)
 
     def can_dock(self, island):
-        delta_x = island.x - self.x
-        delta_y = island.y - self.y
-        return math.sqrt(delta_x * delta_x + delta_y * delta_y) < 2
+        return self.__distance_to_island(island) < 2
 
     def filter_dockworthy_islands(self, islands):
-        return [island for island in islands if self.can_dock(island)]
+        return Ship.__filter_islands(islands, self.can_dock)
 
 
 class Island:
