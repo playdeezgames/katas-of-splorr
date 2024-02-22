@@ -27,6 +27,7 @@
     - [ ] Islands have an (x,y) position 
       - [ ] must be defined when the island is created
   - [ ] Ships with Islands
+    - [ ] A Ship can determine a distance to a given island
     - [ ] A Ship can "see" an island that is no more than 10 units away
       - [ ] ```hint: c ^ 2 = a ^ 2 + b ^ 2```
     - [ ] Given a list of islands, a Ship can filter for only those that are visible
@@ -37,7 +38,6 @@
       - [ ] Need only return compass points 0 (north), 4 (north-east), 8 (east), 12 (south-east), 16 (south), 20 (southwest), 24 (west), or 28 (northwest)
       - [ ] Bonus points for the closest compass point
       - [ ] Point to Ponder: what if the ship is at the same position as the island?
-    - [ ] A Ship can determine a distance to a given island
     - [ ] A Ship counts the number of moves it has made
       - [ ] Docking counts as a move
       - [ ] Undocking counts as a move

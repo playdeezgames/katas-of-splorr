@@ -74,6 +74,13 @@ def test_islands_should_exist():
     assert sut.y == 0
 
 
+@pytest.mark.parametrize("given_island_x, given_island_y, expected_distance", [(0, 0, 0)])
+def test_ship_should_determine_distance_to_island(given_island_x, given_island_y, expected_distance):
+    sut = seafarers.Ship()
+    island = seafarers.Island(given_island_x, given_island_y)
+    assert sut.distance_to(island) == expected_distance
+
+
 @pytest.mark.parametrize("given_island_x, given_island_y, expected_visibility", [
     (0, 0, True),
     (11, 0, False),
