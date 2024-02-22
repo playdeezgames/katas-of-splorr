@@ -1,9 +1,11 @@
 import math
 
 
+def filter_islands(islands, is_island_visible):
+    return [island for island in islands if is_island_visible(island)]
+
+
 class Ship:
-    def __filter_islands(islands, is_island_visible):
-        return [island for island in islands if is_island_visible(island)]
 
     def __init__(self):
         self.x = 0
@@ -103,13 +105,13 @@ class Ship:
         return self.__distance_to_island(island) <= 10
 
     def filter_visible_islands(self, islands):
-        return Ship.__filter_islands(islands, self.is_island_visible)
+        return filter_islands(islands, self.is_island_visible)
 
     def can_dock(self, island):
         return self.__distance_to_island(island) < 2
 
     def filter_dockworthy_islands(self, islands):
-        return Ship.__filter_islands(islands, self.can_dock)
+        return filter_islands(islands, self.can_dock)
 
 
 class Island:
