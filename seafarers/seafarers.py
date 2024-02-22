@@ -99,6 +99,11 @@ class Ship:
     def filter_visible_islands(self, islands):
         return [island for island in islands if self.is_island_visible(island)]
 
+    def can_dock(self, island):
+        delta_x = island.x - self.x
+        delta_y = island.y - self.y
+        return math.sqrt(delta_x * delta_x + delta_y * delta_y) < 2
+
 
 class Island:
     def __init__(self, x, y):

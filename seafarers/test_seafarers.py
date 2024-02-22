@@ -91,3 +91,13 @@ def test_ship_should_filter_islands_by_visibility():
     assert len(actual_visible_islands) == 1
     assert actual_visible_islands[0].x == 0
     assert actual_visible_islands[0].y == 0
+
+
+@pytest.mark.parametrize("given_island_x, given_island_y, expected_dockworthiness", [
+    (0, 0, True),
+    (2, 0, False),
+])
+def test_ship_should_check_island_dockworthiness(given_island_x, given_island_y, expected_dockworthiness):
+    sut = seafarers.Ship()
+    island = seafarers.Island(given_island_x, given_island_y)
+    assert sut.can_dock(island) == expected_dockworthiness
