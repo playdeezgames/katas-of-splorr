@@ -157,3 +157,21 @@ def test_ship_should_know_rough_heading_towards_island(island_x, island_y, expec
     island = seafarers.Island(island_x, island_y)
     actual_rough_heading = sut.rough_heading_to(island)
     assert actual_rough_heading == expected_rough_heading
+
+
+def test_ship_has_move_count():
+    sut = seafarers.Ship()
+    assert sut.moves == 0
+
+
+def test_ship_counts_moves():
+    sut = seafarers.Ship()
+    sut.move()
+    assert sut.moves == 1
+
+
+def test_ship_docking_counts_as_move():
+    sut = seafarers.Ship()
+    island = seafarers.Island(0,0)
+    sut.dock(island)
+    assert sut.moves == 1

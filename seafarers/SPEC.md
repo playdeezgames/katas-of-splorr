@@ -36,7 +36,7 @@
     - [ ] A Ship cannot move when docked
     - [ ] A Ship can determine a rough heading that will lead to a given island
       - [ ] Need only return compass points 0 (north), 4 (north-east), 8 (east), 12 (south-east), 16 (south), 20 (southwest), 24 (west), or 28 (northwest)
-      - [ ] Bonus points for the closest compass point
+      - [ ] Bonus points for the closest compass point(for trig nerds!)
       - [ ] Point to Ponder: what if the ship is at the same position as the island?
     - [ ] A Ship counts the number of moves it has made
       - [ ] Docking counts as a move

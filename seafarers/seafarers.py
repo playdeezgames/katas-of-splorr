@@ -13,6 +13,7 @@ class Ship:
         self.heading = 0
         self.speed = 1
         self.docked_at = None
+        self.moves = 0
 
     def set_heading(self, new_heading):
         self.heading = new_heading % 32
@@ -95,6 +96,7 @@ class Ship:
 
     def move(self):
         if self.docked_at is None:
+            self.moves += 1
             self.y += Ship.DELTA_YS[self.heading] * self.speed
             self.x += Ship.DELTA_XS[self.heading] * self.speed
 
@@ -116,6 +118,7 @@ class Ship:
         return filter_islands(islands, self.can_dock)
 
     def dock(self, island):
+        self.moves += 1
         self.docked_at = island
 
     def rough_heading_to(self, island):
