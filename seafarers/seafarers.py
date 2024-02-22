@@ -12,6 +12,7 @@ class Ship:
         self.y = 0
         self.heading = 0
         self.speed = 1
+        self.docked_at = None
 
     def set_heading(self, new_heading):
         self.heading = new_heading % 32

@@ -110,3 +110,9 @@ def test_ship_should_filter_islands_by_dockworthiness():
     assert len(actual_dockworthy_islands) == 1
     assert actual_dockworthy_islands[0].x == 0
     assert actual_dockworthy_islands[0].y == 0
+
+
+def test_ship_should_initially_not_be_docked():
+    sut = seafarers.Ship()
+    island = seafarers.Island(0,0)
+    assert sut.docked_at is None
