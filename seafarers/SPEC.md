@@ -37,6 +37,7 @@
     * A Ship can determine a rough heading that will lead to a given island
       * Need only return compass points 0 (north), 4 (north-east), 8 (east), 12 (south-east), 16 (south), 20 (southwest), 24 (west), or 28 (northwest)
       * Bonus points for the closest compass point
+      * Point to Ponder: what if the ship is at the same position as the island?
     * A Ship can determine a distance to a given island
     * A Ship counts the number of moves it has made
     * A Ship tracks how many visits it has made to a given island. 

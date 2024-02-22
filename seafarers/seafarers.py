@@ -8,6 +8,9 @@ class Ship:
     def set_heading(self, new_heading):
         self.heading = new_heading % 32
 
+    def turn(self, delta_heading):
+        self.set_heading(self.heading + delta_heading)
+
     def set_speed(self, new_speed):
         self.speed = max(0, min(1, new_speed))
 
@@ -44,7 +47,7 @@ class Ship:
         -0.5556,
         -0.3827,
         -0.1951,
-        ]
+    ]
 
     DELTA_YS = [
         1.0000,
@@ -79,11 +82,12 @@ class Ship:
         0.8315,
         0.9239,
         0.9808,
-        ]
+    ]
 
     def move(self):
         self.y += Ship.DELTA_YS[self.heading] * self.speed
         self.x += Ship.DELTA_XS[self.heading] * self.speed
+
 
 class Island:
     def __init__(self, x, y):

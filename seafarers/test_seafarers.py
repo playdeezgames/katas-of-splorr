@@ -20,6 +20,15 @@ def test_ship_should_set_heading(given_heading, expected_heading):
     sut.set_heading(given_heading)
     assert sut.heading == expected_heading
 
+
+@pytest.mark.parametrize("initial_heading, given_turn, expected_heading", [(0, 1, 1), (0, -1, 31)])
+def test_ship_should_turn(initial_heading, given_turn, expected_heading):
+    sut = seafarers.Ship()
+    sut.set_heading(initial_heading)
+    sut.turn(given_turn)
+    assert sut.heading == expected_heading
+
+
 def test_ship_should_have_speed():
     sut = seafarers.Ship()
     assert sut.speed == 1
