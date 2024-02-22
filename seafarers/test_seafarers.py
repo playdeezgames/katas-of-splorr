@@ -101,3 +101,12 @@ def test_ship_should_check_island_dockworthiness(given_island_x, given_island_y,
     sut = seafarers.Ship()
     island = seafarers.Island(given_island_x, given_island_y)
     assert sut.can_dock(island) == expected_dockworthiness
+
+
+def test_ship_should_filter_islands_by_dockworthiness():
+    sut = seafarers.Ship()
+    islands = [seafarers.Island(0, 0), seafarers.Island(2, 0)]
+    actual_dockworthy_islands = sut.filter_dockworthy_islands(islands)
+    assert len(actual_dockworthy_islands) == 1
+    assert actual_dockworthy_islands[0].x == 0
+    assert actual_dockworthy_islands[0].y == 0

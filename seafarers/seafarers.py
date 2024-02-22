@@ -104,6 +104,9 @@ class Ship:
         delta_y = island.y - self.y
         return math.sqrt(delta_x * delta_x + delta_y * delta_y) < 2
 
+    def filter_dockworthy_islands(self, islands):
+        pass
+
 
 class Island:
     def __init__(self, x, y):
