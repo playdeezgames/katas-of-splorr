@@ -72,3 +72,13 @@ def test_islands_should_exist():
     sut = seafarers.Island(0, 0)
     assert sut.x == 0
     assert sut.y == 0
+
+
+@pytest.mark.parametrize("given_island_x, given_island_y, expected_visibility", [
+    (0, 0, True),
+    (11, 0, False),
+])
+def test_ship_should_check_island_visibility(given_island_x, given_island_y, expected_visibility):
+    sut = seafarers.Ship()
+    island = seafarers.Island(given_island_x, given_island_y)
+    assert sut.is_island_visible(island) == expected_visibility

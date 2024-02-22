@@ -88,6 +88,11 @@ class Ship:
         self.y += Ship.DELTA_YS[self.heading] * self.speed
         self.x += Ship.DELTA_XS[self.heading] * self.speed
 
+    def is_island_visible(self, island):
+        delta_x = island.x - self.x
+        delta_y = island.y - self.y
+        return delta_x * delta_x + delta_y * delta_y <= 100
+
 
 class Island:
     def __init__(self, x, y):
