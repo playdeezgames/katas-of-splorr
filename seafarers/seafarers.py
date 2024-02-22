@@ -1,3 +1,6 @@
+import math
+
+
 class Ship:
     def __init__(self):
         self.x = 0
@@ -91,7 +94,7 @@ class Ship:
     def is_island_visible(self, island):
         delta_x = island.x - self.x
         delta_y = island.y - self.y
-        return delta_x * delta_x + delta_y * delta_y <= 100
+        return math.sqrt(delta_x * delta_x + delta_y * delta_y) <= 10
 
 
 class Island:
