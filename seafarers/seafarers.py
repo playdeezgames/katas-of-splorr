@@ -96,6 +96,9 @@ class Ship:
         delta_y = island.y - self.y
         return math.sqrt(delta_x * delta_x + delta_y * delta_y) <= 10
 
+    def filter_visible_islands(self, islands):
+        return [island for island in islands if self.is_island_visible(island)]
+
 
 class Island:
     def __init__(self, x, y):

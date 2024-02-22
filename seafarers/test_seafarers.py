@@ -82,3 +82,12 @@ def test_ship_should_check_island_visibility(given_island_x, given_island_y, exp
     sut = seafarers.Ship()
     island = seafarers.Island(given_island_x, given_island_y)
     assert sut.is_island_visible(island) == expected_visibility
+
+
+def test_ship_should_filter_islands_by_visibility():
+    sut = seafarers.Ship()
+    islands = [seafarers.Island(0, 0), seafarers.Island(11, 0)]
+    actual_visible_islands = sut.filter_visible_islands(islands)
+    assert len(actual_visible_islands) == 1
+    assert actual_visible_islands[0].x == 0
+    assert actual_visible_islands[0].y == 0
