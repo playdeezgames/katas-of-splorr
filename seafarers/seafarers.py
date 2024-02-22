@@ -114,6 +114,9 @@ class Ship:
     def filter_dockworthy_islands(self, islands):
         return filter_islands(islands, self.can_dock)
 
+    def dock(self, island):
+        self.docked_at = island
+
 
 class Island:
     def __init__(self, x, y):

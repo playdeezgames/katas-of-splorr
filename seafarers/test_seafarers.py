@@ -114,5 +114,11 @@ def test_ship_should_filter_islands_by_dockworthiness():
 
 def test_ship_should_initially_not_be_docked():
     sut = seafarers.Ship()
-    island = seafarers.Island(0,0)
     assert sut.docked_at is None
+
+
+def test_ship_can_dock():
+    sut = seafarers.Ship()
+    island = seafarers.Island(0, 0)
+    sut.dock(island)
+    assert sut.docked_at == island
