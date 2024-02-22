@@ -137,6 +137,13 @@ def test_ship_cannot_move_when_docked():
     (0, 1, 0),
     (1, 1, 4),
     (2, 2, 4),
+    (1, -1, 12),
+    (1, 0, 8),
+    (0, -1, 16),
+    (-1, -1, 20),
+    (-1, 1, 28),
+    (-1, 0, 24),
+    (0, 0, 0),
 ])
 def test_ship_should_know_rough_heading_towards_island(island_x, island_y, expected_rough_heading):
     sut = seafarers.Ship()

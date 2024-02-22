@@ -119,9 +119,21 @@ class Ship:
         self.docked_at = island
 
     def rough_heading_to(self, island):
-        if island.x == 1 and island.y == 1:
-            return 4
-        return 0
+        if island.x > self.x:
+            if island.y > self.y:
+                return 4
+            elif island.y < self.y:
+                return 12
+            return 8
+        elif island.x < self.x:
+            if island.y > self.y:
+                return 28
+            elif island.y < self.y:
+                return 20
+            return 24
+        if island.y >= self.y:
+            return 0
+        return 16
 
 
 class Island:
