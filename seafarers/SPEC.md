@@ -33,13 +33,14 @@
     - [ ] A Ship can "dock" with an island that is less than 2 units away
     - [ ] Given a list of islands, a Ship can filter for only those that are dock-worthy
     - [ ] A Ship cannot move when docked
-    - [ ] A Ship must "undock" to move again once it has docked 
     - [ ] A Ship can determine a rough heading that will lead to a given island
       - [ ] Need only return compass points 0 (north), 4 (north-east), 8 (east), 12 (south-east), 16 (south), 20 (southwest), 24 (west), or 28 (northwest)
       - [ ] Bonus points for the closest compass point
       - [ ] Point to Ponder: what if the ship is at the same position as the island?
     - [ ] A Ship can determine a distance to a given island
     - [ ] A Ship counts the number of moves it has made
+      - [ ] Docking counts as a move
+      - [ ] Undocking counts as a move
     - [ ] A Ship tracks how many visits it has made to a given island. 
       - [ ] A visit is counted as docking with the island.
     - [ ] A Ship tracks which move it last visited an island.

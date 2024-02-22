@@ -122,3 +122,20 @@ def test_ship_can_dock():
     island = seafarers.Island(0, 0)
     sut.dock(island)
     assert sut.docked_at == island
+
+
+def test_ship_cannot_move_when_docked():
+    sut = seafarers.Ship()
+    island = seafarers.Island(0, 0)
+    sut.dock(island)
+    sut.move()
+    assert sut.x == 0
+    assert sut.y == 0
+
+
+@pytest.mark.parametrize("island_x, island_y, expected_rough_heading", [(0, 10, 0)])
+def test_ship_should_know_rough_heading_towards_island(island_x, island_y, expected_rough_heading):
+    sut = seafarers.Ship()
+    island = seafarers.Island(island_x, island_y)
+    actual_rough_heading = sut.rough_heading_to(island)
+    assert actual_rough_heading == expected_rough_heading

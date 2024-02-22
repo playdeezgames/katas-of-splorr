@@ -94,8 +94,9 @@ class Ship:
     ]
 
     def move(self):
-        self.y += Ship.DELTA_YS[self.heading] * self.speed
-        self.x += Ship.DELTA_XS[self.heading] * self.speed
+        if self.docked_at is None:
+            self.y += Ship.DELTA_YS[self.heading] * self.speed
+            self.x += Ship.DELTA_XS[self.heading] * self.speed
 
     def __distance_to_island(self, island):
         delta_x = island.x - self.x
@@ -116,6 +117,9 @@ class Ship:
 
     def dock(self, island):
         self.docked_at = island
+
+    def rough_heading_to(self, island):
+        return 0
 
 
 class Island:
