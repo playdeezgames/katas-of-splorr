@@ -172,6 +172,12 @@ def test_ship_counts_moves():
 
 def test_ship_docking_counts_as_move():
     sut = seafarers.Ship()
-    island = seafarers.Island(0,0)
+    island = seafarers.Island(0, 0)
     sut.dock(island)
+    assert sut.moves == 1
+
+
+def test_ship_undocking_counts_as_move():
+    sut = seafarers.Ship()
+    sut.dock(None)
     assert sut.moves == 1
