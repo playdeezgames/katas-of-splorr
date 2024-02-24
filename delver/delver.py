@@ -39,3 +39,6 @@ class Character:
         self.turn_left()
         self.move_ahead()
         self.turn_right()
+
+    def move_right(self):
+        pass

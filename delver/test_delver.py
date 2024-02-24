@@ -103,3 +103,22 @@ def test_character_moves_left(given_facing, steps, expected_x, expected_y):
         sut.move_left()
     assert sut.x == expected_x
     assert sut.y == expected_y
+
+
+@pytest.mark.parametrize("given_facing, steps, expected_x, expected_y", [
+    (delver.NORTH, 1, 1, 0),
+    (delver.NORTH, 2, 2, 0),
+    (delver.SOUTH, 1, -1, 0),
+    (delver.SOUTH, 2, -2, 0),
+    (delver.EAST, 1, 0, -1),
+    (delver.EAST, 2, 0, -2),
+    (delver.WEST, 1, 0, 1),
+    (delver.WEST, 2, 0, 2),
+])
+def test_character_moves_right(given_facing, steps, expected_x, expected_y):
+    sut = delver.Character()
+    sut.set_facing(given_facing)
+    for step in range(steps):
+        sut.move_right()
+    assert sut.x == expected_x
+    assert sut.y == expected_y
