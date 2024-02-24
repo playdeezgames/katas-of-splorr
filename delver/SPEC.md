@@ -27,6 +27,6 @@
     - [x] Dungeons contain a grid of rooms
   - [ ] Characters and Rooms/Dungeons
     - [x] Characters must be in a dungeon
-      - [ ] Characters may be placed anywhere with the dungeon
-      - [ ] Characters cannot be placed outside a dungeons bounds 
+      - [x] Characters may be placed anywhere with the dungeon
+      - [x] Characters cannot be placed outside a dungeons bounds 
       - [ ] Character movement is determined by the room that they are in 

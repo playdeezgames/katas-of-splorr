@@ -79,7 +79,7 @@ def test_characters_have_x_and_y():
     (direction.WEST, 2, -2, 0),
 ])
 def test_character_moves_ahead(given_facing, steps, expected_x, expected_y):
-    sut = character.Character(dungeon.Dungeon(1, 1))
+    sut = character.Character(dungeon.Dungeon(3, 3))
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_ahead()
