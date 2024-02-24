@@ -1,36 +1,31 @@
-NORTH = 0
-EAST = 1
-SOUTH = 2
-WEST = 3
-
-VALID_DIRECTIONS = [NORTH, EAST, SOUTH, WEST]
+import direction
 
 
 class Character:
     def __init__(self):
-        self.facing = NORTH
+        self.facing = direction.NORTH
         self.x = 0
         self.y = 0
 
     def set_facing(self, new_facing):
-        if new_facing in VALID_DIRECTIONS:
+        if new_facing in direction.VALID_DIRECTIONS:
             self.facing = new_facing
 
     def turn_left(self):
-        self.facing = [WEST, NORTH, EAST, SOUTH][self.facing]
+        self.facing = [direction.WEST, direction.NORTH, direction.EAST, direction.SOUTH][self.facing]
 
     def turn_right(self):
-        self.facing = [EAST, SOUTH, WEST, NORTH][self.facing]
+        self.facing = [direction.EAST, direction.SOUTH, direction.WEST, direction.NORTH][self.facing]
 
     def turn_around(self):
-        self.facing = [SOUTH, WEST, NORTH, EAST][self.facing]
+        self.facing = [direction.SOUTH, direction.WEST, direction.NORTH, direction.EAST][self.facing]
 
     def move_ahead(self):
-        if self.facing == SOUTH:
+        if self.facing == direction.SOUTH:
             self.y += -1
-        elif self.facing == EAST:
+        elif self.facing == direction.EAST:
             self.x += 1
-        elif self.facing == WEST:
+        elif self.facing == direction.WEST:
             self.x += -1
         else:
             self.y += 1
