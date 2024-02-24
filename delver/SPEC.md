@@ -18,8 +18,10 @@
       - [x] Characters can move left without changing their facing
       - [x] Characters can move right without changing their facing
       - [x] Characters can move backwards without changing their facing
-  - [ ] Rooms exist
-    - [ ] Rooms may have exits in given directions
-      - [ ] Rooms start with no exits 
-      - [ ] Rooms have a way for checking for an exit in a given direction
-      - [ ] Rooms have a way for setting an exit in a given direction
+  - [x] Rooms exist
+    - [x] Rooms may have exits in given directions
+      - [x] Rooms start with no exits 
+      - [x] Rooms have a way for checking for an exit in a given direction
+      - [x] Rooms have a way for setting an exit in a given direction
+  - [ ] Dungeons exist
+    - [ ] Dungeons contain a grid of rooms
