@@ -27,10 +27,15 @@ class Character:
 
     def move_ahead(self):
         if self.facing == SOUTH:
-            self.y = -1
+            self.y += -1
         elif self.facing == EAST:
-            self.x = 1
+            self.x += 1
         elif self.facing == WEST:
-            self.x = -1
+            self.x += -1
         else:
-            self.y = 1
+            self.y += 1
+
+    def move_left(self):
+        self.turn_left()
+        self.move_ahead()
+        self.turn_right()
