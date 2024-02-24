@@ -44,3 +44,8 @@ class Character:
         self.turn_right()
         self.move_ahead()
         self.turn_left()
+
+    def move_back(self):
+        self.turn_around()
+        self.move_ahead()
+        self.turn_around()

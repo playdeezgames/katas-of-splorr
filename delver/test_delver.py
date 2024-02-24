@@ -82,6 +82,7 @@ def test_character_moves_ahead(given_facing, steps, expected_x, expected_y):
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_ahead()
+    assert sut.facing == given_facing
     assert sut.x == expected_x
     assert sut.y == expected_y
 
@@ -101,6 +102,7 @@ def test_character_moves_left(given_facing, steps, expected_x, expected_y):
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_left()
+    assert sut.facing == given_facing
     assert sut.x == expected_x
     assert sut.y == expected_y
 
@@ -120,5 +122,26 @@ def test_character_moves_right(given_facing, steps, expected_x, expected_y):
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_right()
+    assert sut.facing == given_facing
+    assert sut.x == expected_x
+    assert sut.y == expected_y
+
+
+@pytest.mark.parametrize("given_facing, steps, expected_x, expected_y", [
+    (delver.NORTH, 1, 0, -1),
+    (delver.SOUTH, 1, 0, 1),
+    (delver.EAST, 1, -1, 0),
+    (delver.WEST, 1, 1, 0),
+    (delver.NORTH, 2, 0, -2),
+    (delver.SOUTH, 2, 0, 2),
+    (delver.EAST, 2, -2, 0),
+    (delver.WEST, 2, 2, 0),
+])
+def test_character_moves_back(given_facing, steps, expected_x, expected_y):
+    sut = delver.Character()
+    sut.set_facing(given_facing)
+    for step in range(steps):
+        sut.move_back()
+    assert sut.facing == given_facing
     assert sut.x == expected_x
     assert sut.y == expected_y
