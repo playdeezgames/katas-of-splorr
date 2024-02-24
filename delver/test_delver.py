@@ -67,14 +67,16 @@ def test_characters_have_x_and_y():
     assert sut.y == 0
 
 
-@pytest.mark.parametrize("given_facing, expected_x, expected_y", [
-    (delver.NORTH, 0, 1),
-    (delver.SOUTH, 0, -1),
-    (delver.EAST, 1, 0),
+@pytest.mark.parametrize("given_facing, steps, expected_x, expected_y", [
+    (delver.NORTH, 1, 0, 1),
+    (delver.SOUTH, 1, 0, -1),
+    (delver.EAST, 1, 1, 0),
+    (delver.WEST, 1, -1, 0),
 ])
-def test_character_moves_ahead(given_facing, expected_x, expected_y):
+def test_character_moves_ahead(given_facing, steps, expected_x, expected_y):
     sut = delver.Character()
     sut.set_facing(given_facing)
-    sut.move_ahead()
+    for step in range(steps):
+        sut.move_ahead()
     assert sut.x == expected_x
     assert sut.y == expected_y

@@ -30,5 +30,7 @@ class Character:
             self.y = -1
         elif self.facing == EAST:
             self.x = 1
+        elif self.facing == WEST:
+            self.x = -1
         else:
             self.y = 1
