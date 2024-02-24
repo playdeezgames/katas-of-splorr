@@ -1,20 +1,22 @@
 # Delver of SPLORR!!
 
 - [ ] As a player, I want to crawl through a dungeon, kill monsters, and collect treasures!
-  - [ ] Characters exist!
+  - [x] Characters exist!
     - [x] Characters have a facing
       - [x] Initial facing is north
       - [x] Character can set facing to north, east, south, or west
       - [x] Character can turn left
       - [x] Character can turn right
       - [x] Character can turn around
-    - [ ] Characters have an x and y position
+    - [x] Characters have an x and y position
       - [x] x and y default to 0 
       - [x] Characters can move in the direction that they are facing
           - [x] North adds 1 to y
           - [x] South subtracts 1 from y
           - [x] East adds 1 to x
           - [x] West subtracts 1 from x
-      - [ ] Characters can move left without changing their facing
-      - [ ] Characters can move right without changing their facing
-      - [ ] Characters can move backwards without changing their facing
+      - [x] Characters can move left without changing their facing
+      - [x] Characters can move right without changing their facing
+      - [x] Characters can move backwards without changing their facing
+  - [ ] Rooms exist
+    - [ ] Rooms have exits
