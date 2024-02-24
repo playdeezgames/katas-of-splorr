@@ -2,9 +2,19 @@
 
 - [ ] As a player, I want to crawl through a dungeon, kill monsters, and collect treasures!
   - [ ] Characters exist!
-    - [ ] Characters have a facing
+    - [x] Characters have a facing
       - [x] Initial facing is north
       - [x] Character can set facing to north, east, south, or west
-      - [ ] Character can turn left
-      - [ ] Character can turn right
-      - [ ] Character can turn around
+      - [x] Character can turn left
+      - [x] Character can turn right
+      - [x] Character can turn around
+    - [ ] Characters have an x and y position
+      - [x] x and y default to 0 
+      - [ ] Characters can move in the direction that they are facing
+          - [x] North adds 1 to y
+          - [x] South subtracts 1 from y
+          - [ ] East adds 1 to x
+          - [ ] West subtracts 1 from x
+      - [ ] Characters can move left without changing their facing
+      - [ ] Characters can move right without changing their facing
+      - [ ] Characters can move backwards without changing their facing

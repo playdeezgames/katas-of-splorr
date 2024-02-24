@@ -20,3 +20,61 @@ def test_character_set_facing(given_facing, expected_facing):
     sut = delver.Character()
     sut.set_facing(given_facing)
     assert sut.facing == expected_facing
+
+
+@pytest.mark.parametrize("given_initial_facing, expected_final_facing", [
+    (delver.NORTH, delver.WEST),
+    (delver.WEST, delver.SOUTH),
+    (delver.SOUTH, delver.EAST),
+    (delver.EAST, delver.NORTH),
+])
+def test_character_turn_left(given_initial_facing, expected_final_facing):
+    sut = delver.Character()
+    sut.set_facing(given_initial_facing)
+    sut.turn_left()
+    assert sut.facing == expected_final_facing
+
+
+@pytest.mark.parametrize("given_initial_facing, expected_final_facing", [
+    (delver.NORTH, delver.EAST),
+    (delver.EAST, delver.SOUTH),
+    (delver.SOUTH, delver.WEST),
+    (delver.WEST, delver.NORTH),
+])
+def test_character_turn_right(given_initial_facing, expected_final_facing):
+    sut = delver.Character()
+    sut.set_facing(given_initial_facing)
+    sut.turn_right()
+    assert sut.facing == expected_final_facing
+
+
+@pytest.mark.parametrize("given_initial_facing, expected_final_facing", [
+    (delver.NORTH, delver.SOUTH),
+    (delver.EAST, delver.WEST),
+    (delver.SOUTH, delver.NORTH),
+    (delver.WEST, delver.EAST),
+])
+def test_character_turn_around(given_initial_facing, expected_final_facing):
+    sut = delver.Character()
+    sut.set_facing(given_initial_facing)
+    sut.turn_around()
+    assert sut.facing == expected_final_facing
+
+
+def test_characters_have_x_and_y():
+    sut = delver.Character()
+    assert sut.x == 0
+    assert sut.y == 0
+
+
+@pytest.mark.parametrize("given_facing, expected_x, expected_y", [
+    (delver.NORTH, 0, 1),
+    (delver.SOUTH, 0, -1),
+    (delver.EAST, 1, 0),
+])
+def test_character_moves_ahead(given_facing, expected_x, expected_y):
+    sut = delver.Character()
+    sut.set_facing(given_facing)
+    sut.move_ahead()
+    assert sut.x == expected_x
+    assert sut.y == expected_y
