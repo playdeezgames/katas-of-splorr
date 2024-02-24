@@ -2,10 +2,11 @@ import direction
 
 
 class Character:
-    def __init__(self):
+    def __init__(self, new_dungeon):
         self.facing = direction.NORTH
         self.x = 0
         self.y = 0
+        self.dungeon = new_dungeon
 
     def set_facing(self, new_facing):
         if new_facing in direction.VALID_DIRECTIONS:
@@ -44,3 +45,8 @@ class Character:
         self.turn_around()
         self.move_ahead()
         self.turn_around()
+
+    def move_to(self, x, y):
+        if (0 <= x < self.dungeon.columns) and (0 <= y < self.dungeon.rows):
+            self.x = x
+            self.y = y

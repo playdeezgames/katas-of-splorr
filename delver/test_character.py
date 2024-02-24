@@ -1,11 +1,11 @@
 import pytest
-
+import dungeon
 import character
 import direction
 
 
 def test_character_exists_and_initially_faces_north():
-    sut = character.Character()
+    sut = character.Character(dungeon.Dungeon(1, 1))
     assert sut.facing == direction.NORTH
 
 
@@ -18,7 +18,7 @@ def test_character_exists_and_initially_faces_north():
         (99, direction.NORTH),
     ])
 def test_character_set_facing(given_facing, expected_facing):
-    sut = character.Character()
+    sut = character.Character(dungeon.Dungeon(1, 1))
     sut.set_facing(given_facing)
     assert sut.facing == expected_facing
 
@@ -30,7 +30,7 @@ def test_character_set_facing(given_facing, expected_facing):
     (direction.EAST, direction.NORTH),
 ])
 def test_character_turn_left(given_initial_facing, expected_final_facing):
-    sut = character.Character()
+    sut = character.Character(dungeon.Dungeon(1, 1))
     sut.set_facing(given_initial_facing)
     sut.turn_left()
     assert sut.facing == expected_final_facing
@@ -43,7 +43,7 @@ def test_character_turn_left(given_initial_facing, expected_final_facing):
     (direction.WEST, direction.NORTH),
 ])
 def test_character_turn_right(given_initial_facing, expected_final_facing):
-    sut = character.Character()
+    sut = character.Character(dungeon.Dungeon(1, 1))
     sut.set_facing(given_initial_facing)
     sut.turn_right()
     assert sut.facing == expected_final_facing
@@ -56,14 +56,14 @@ def test_character_turn_right(given_initial_facing, expected_final_facing):
     (direction.WEST, direction.EAST),
 ])
 def test_character_turn_around(given_initial_facing, expected_final_facing):
-    sut = character.Character()
+    sut = character.Character(dungeon.Dungeon(1, 1))
     sut.set_facing(given_initial_facing)
     sut.turn_around()
     assert sut.facing == expected_final_facing
 
 
 def test_characters_have_x_and_y():
-    sut = character.Character()
+    sut = character.Character(dungeon.Dungeon(1, 1))
     assert sut.x == 0
     assert sut.y == 0
 
@@ -79,7 +79,7 @@ def test_characters_have_x_and_y():
     (direction.WEST, 2, -2, 0),
 ])
 def test_character_moves_ahead(given_facing, steps, expected_x, expected_y):
-    sut = character.Character()
+    sut = character.Character(dungeon.Dungeon(1, 1))
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_ahead()
@@ -99,7 +99,7 @@ def test_character_moves_ahead(given_facing, steps, expected_x, expected_y):
     (direction.WEST, 2, 0, -2),
 ])
 def test_character_moves_left(given_facing, steps, expected_x, expected_y):
-    sut = character.Character()
+    sut = character.Character(dungeon.Dungeon(1, 1))
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_left()
@@ -119,7 +119,7 @@ def test_character_moves_left(given_facing, steps, expected_x, expected_y):
     (direction.WEST, 2, 0, 2),
 ])
 def test_character_moves_right(given_facing, steps, expected_x, expected_y):
-    sut = character.Character()
+    sut = character.Character(dungeon.Dungeon(1, 1))
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_right()
@@ -139,10 +139,29 @@ def test_character_moves_right(given_facing, steps, expected_x, expected_y):
     (direction.WEST, 2, 2, 0),
 ])
 def test_character_moves_back(given_facing, steps, expected_x, expected_y):
-    sut = character.Character()
+    sut = character.Character(dungeon.Dungeon(1, 1))
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_back()
     assert sut.facing == given_facing
+    assert sut.x == expected_x
+    assert sut.y == expected_y
+
+
+def test_characters_must_be_in_dungeon():
+    given_dungeon = dungeon.Dungeon(1, 1)
+    sut = character.Character(given_dungeon)
+    assert sut.dungeon == given_dungeon, "Character must be in a dungeon"
+
+
+@pytest.mark.parametrize("dungeon_columns, dungeon_rows, given_x, given_y, expected_x, expected_y", [
+    (2, 2, 0, 1, 0, 1),
+    (2, 2, 1, 1, 1, 1),
+    (2, 2, 2, 1, 0, 0),
+])
+def test_character_can_move_within_dungeon(dungeon_columns, dungeon_rows, given_x, given_y, expected_x, expected_y):
+    given_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
+    sut = character.Character(given_dungeon)
+    sut.move_to(given_x, given_y)
     assert sut.x == expected_x
     assert sut.y == expected_y

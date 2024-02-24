@@ -23,5 +23,10 @@
       - [x] Rooms start with no exits 
       - [x] Rooms have a way for checking for an exit in a given direction
       - [x] Rooms have a way for setting an exit in a given direction
-  - [ ] Dungeons exist
-    - [ ] Dungeons contain a grid of rooms
+  - [x] Dungeons exist
+    - [x] Dungeons contain a grid of rooms
+  - [ ] Characters and Rooms/Dungeons
+    - [x] Characters must be in a dungeon
+      - [ ] Characters may be placed anywhere with the dungeon
+      - [ ] Characters cannot be placed outside a dungeons bounds 
+      - [ ] Character movement is determined by the room that they are in 
