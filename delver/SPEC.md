@@ -19,4 +19,7 @@
       - [x] Characters can move right without changing their facing
       - [x] Characters can move backwards without changing their facing
   - [ ] Rooms exist
-    - [ ] Rooms have exits
+    - [ ] Rooms may have exits in given directions
+      - [ ] Rooms start with no exits 
+      - [ ] Rooms have a way for checking for an exit in a given direction
+      - [ ] Rooms have a way for setting an exit in a given direction
