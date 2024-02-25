@@ -215,9 +215,3 @@ def test_character_is_blocked_when_exit_does_not_exist_for_room():
     sut.move_ahead()
     assert sut.x == 1
     assert sut.y == 1
-
-
-def test_character_has_room_exit_check_feature_flag():
-    given_dungeon = dungeon.Dungeon(1, 1)
-    sut = character.Character(given_dungeon)
-    assert sut.check_room_exits
