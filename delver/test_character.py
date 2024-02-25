@@ -68,7 +68,7 @@ def test_characters_have_x_and_y():
     assert sut.y == 0
 
 
-@pytest.mark.parametrize("given_facing, steps, expected_x, expected_y", [
+@pytest.mark.parametrize("given_facing, steps, expected_delta_x, expected_delta_y", [
     (direction.NORTH, 1, 0, 1),
     (direction.SOUTH, 1, 0, -1),
     (direction.EAST, 1, 1, 0),
@@ -78,14 +78,24 @@ def test_characters_have_x_and_y():
     (direction.EAST, 2, 2, 0),
     (direction.WEST, 2, -2, 0),
 ])
-def test_character_moves_ahead(given_facing, steps, expected_x, expected_y):
-    sut = character.Character(dungeon.Dungeon(3, 3))
+def test_character_moves_ahead(given_facing, steps, expected_delta_x, expected_delta_y):
+    offset_x = 2
+    offset_y = 2
+    dungeon_columns = 5
+    dungeon_rows = 5
+    my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
+    for column in range(dungeon_columns):
+        for row in range(dungeon_rows):
+            room = my_dungeon.get_room(column, row)
+            room.set_exit(given_facing, True)
+    sut = character.Character(my_dungeon)
+    sut.move_to(offset_x, offset_y)
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_ahead()
     assert sut.facing == given_facing
-    assert sut.x == expected_x
-    assert sut.y == expected_y
+    assert sut.x == expected_delta_x + offset_x
+    assert sut.y == expected_delta_y + offset_y
 
 
 @pytest.mark.parametrize("given_facing, steps, expected_delta_x, expected_delta_y", [
@@ -207,7 +217,7 @@ def test_character_is_blocked_when_exit_does_not_exist_for_room():
     assert sut.y == 1
 
 
-def test_character_lacks_room_exit_check_feature_flag():
+def test_character_has_room_exit_check_feature_flag():
     given_dungeon = dungeon.Dungeon(1, 1)
     sut = character.Character(given_dungeon)
     assert not sut.check_room_exits
