@@ -165,3 +165,21 @@ def test_character_can_move_within_dungeon(dungeon_columns, dungeon_rows, given_
     sut.move_to(given_x, given_y)
     assert sut.x == expected_x
     assert sut.y == expected_y
+
+
+@pytest.mark.skip(reason="need feature flag for checking whether or not we are tracking room exits")
+def test_character_is_blocked_when_exit_does_not_exist_for_room():
+    given_dungeon = dungeon.Dungeon(3, 3)
+    sut = character.Character(given_dungeon)
+    sut.move_to(1, 1)
+    sut.move_ahead()
+    assert sut.x == 1
+    assert sut.y == 1
+
+
+def test_character_lacks_room_exit_check_feature_flag():
+    given_dungeon = dungeon.Dungeon(1, 1)
+    sut = character.Character(given_dungeon)
+    assert not sut.check_room_exits
+
+
