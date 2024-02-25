@@ -25,8 +25,9 @@
       - [x] Rooms have a way for setting an exit in a given direction
   - [x] Dungeons exist
     - [x] Dungeons contain a grid of rooms
-  - [ ] Characters and Rooms/Dungeons
+  - [x] Characters and Rooms/Dungeons
     - [x] Characters must be in a dungeon
       - [x] Characters may be placed anywhere with the dungeon
       - [x] Characters cannot be placed outside a dungeons bounds 
-      - [ ] Character movement is determined by the room that they are in 
+      - [x] Character movement is determined by the room that they are in
+      - [ ] Rooms track the Characters that are in it

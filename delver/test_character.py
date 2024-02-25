@@ -68,6 +68,17 @@ def test_characters_have_x_and_y():
     assert sut.y == 0
 
 
+def __prep_dungeon_for_move_test(offset_x, offset_y, given_facing):
+    dungeon_columns = offset_x * 2 + 1
+    dungeon_rows = offset_y * 2 + 1
+    my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
+    for column in range(dungeon_columns):
+        for row in range(dungeon_rows):
+            room = my_dungeon.get_room(column, row)
+            room.set_exit(given_facing, True)
+    return my_dungeon
+
+
 @pytest.mark.parametrize("given_facing, steps, expected_delta_x, expected_delta_y", [
     (direction.NORTH, 1, 0, 1),
     (direction.SOUTH, 1, 0, -1),
@@ -81,13 +92,7 @@ def test_characters_have_x_and_y():
 def test_character_moves_ahead(given_facing, steps, expected_delta_x, expected_delta_y):
     offset_x = 2
     offset_y = 2
-    dungeon_columns = 5
-    dungeon_rows = 5
-    my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
-    for column in range(dungeon_columns):
-        for row in range(dungeon_rows):
-            room = my_dungeon.get_room(column, row)
-            room.set_exit(given_facing, True)
+    my_dungeon = __prep_dungeon_for_move_test(offset_x, offset_y, given_facing)
     sut = character.Character(my_dungeon)
     sut.move_to(offset_x, offset_y)
     sut.set_facing(given_facing)
@@ -111,13 +116,7 @@ def test_character_moves_ahead(given_facing, steps, expected_delta_x, expected_d
 def test_character_moves_left(given_facing, steps, expected_delta_x, expected_delta_y):
     offset_x = 2
     offset_y = 2
-    dungeon_columns = 5
-    dungeon_rows = 5
-    my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
-    for column in range(dungeon_columns):
-        for row in range(dungeon_rows):
-            room = my_dungeon.get_room(column, row)
-            room.set_exit((given_facing + 3) % 4, True)
+    my_dungeon = __prep_dungeon_for_move_test(offset_x, offset_y, direction.LEFTS[given_facing])
     sut = character.Character(my_dungeon)
     sut.move_to(offset_x, offset_y)
     sut.set_facing(given_facing)
@@ -141,13 +140,7 @@ def test_character_moves_left(given_facing, steps, expected_delta_x, expected_de
 def test_character_moves_right(given_facing, steps, expected_delta_x, expected_delta_y):
     offset_x = 2
     offset_y = 2
-    dungeon_columns = 5
-    dungeon_rows = 5
-    my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
-    for column in range(dungeon_columns):
-        for row in range(dungeon_rows):
-            room = my_dungeon.get_room(column, row)
-            room.set_exit((given_facing + 1) % 4, True)
+    my_dungeon = __prep_dungeon_for_move_test(offset_x, offset_y, direction.RIGHTS[given_facing])
     sut = character.Character(my_dungeon)
     sut.move_to(offset_x, offset_y)
     sut.set_facing(given_facing)
@@ -171,13 +164,7 @@ def test_character_moves_right(given_facing, steps, expected_delta_x, expected_d
 def test_character_moves_back(given_facing, steps, expected_delta_x, expected_delta_y):
     offset_x = 2
     offset_y = 2
-    dungeon_columns = 5
-    dungeon_rows = 5
-    my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
-    for column in range(dungeon_columns):
-        for row in range(dungeon_rows):
-            room = my_dungeon.get_room(column, row)
-            room.set_exit((given_facing + 2) % 4, True)
+    my_dungeon = __prep_dungeon_for_move_test(offset_x, offset_y, direction.OPPOSITES[given_facing])
     sut = character.Character(my_dungeon)
     sut.move_to(offset_x, offset_y)
     sut.set_facing(given_facing)
