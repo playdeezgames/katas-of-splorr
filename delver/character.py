@@ -32,7 +32,10 @@ class Character:
         self.y += delta[1]
 
     def move_ahead(self):
+        old = self.check_room_exits
+        self.check_room_exits = True
         self.__move_in_direction(self.facing)
+        self.check_room_exits = old
 
     def move_left(self):
         old = self.check_room_exits
