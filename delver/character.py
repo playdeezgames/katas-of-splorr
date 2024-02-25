@@ -38,6 +38,7 @@ class Character:
 
     def move_right(self):
         old = self.check_room_exits
+        self.check_room_exits = True
         self.turn_right()
         self.move_ahead()
         self.turn_left()

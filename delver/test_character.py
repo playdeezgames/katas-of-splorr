@@ -108,7 +108,7 @@ def test_character_moves_left(given_facing, steps, expected_x, expected_y):
     assert sut.y == expected_y
 
 
-@pytest.mark.parametrize("given_facing, steps, expected_x, expected_y", [
+@pytest.mark.parametrize("given_facing, steps, expected_delta_x, expected_delta_y", [
     (direction.NORTH, 1, 1, 0),
     (direction.NORTH, 2, 2, 0),
     (direction.SOUTH, 1, -1, 0),
@@ -118,14 +118,24 @@ def test_character_moves_left(given_facing, steps, expected_x, expected_y):
     (direction.WEST, 1, 0, 1),
     (direction.WEST, 2, 0, 2),
 ])
-def test_character_moves_right(given_facing, steps, expected_x, expected_y):
-    sut = character.Character(dungeon.Dungeon(1, 1))
+def test_character_moves_right(given_facing, steps, expected_delta_x, expected_delta_y):
+    offset_x = 2
+    offset_y = 2
+    dungeon_columns = 5
+    dungeon_rows = 5
+    my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
+    for column in range(dungeon_columns):
+        for row in range(dungeon_rows):
+            room = my_dungeon.get_room(column, row)
+            room.set_exit((given_facing + 1) % 4, True)
+    sut = character.Character(my_dungeon)
+    sut.move_to(offset_x, offset_y)
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_right()
     assert sut.facing == given_facing
-    assert sut.x == expected_x
-    assert sut.y == expected_y
+    assert sut.x == expected_delta_x + offset_x
+    assert sut.y == expected_delta_y + offset_y
 
 
 @pytest.mark.parametrize("given_facing, steps, expected_delta_x, expected_delta_y", [
