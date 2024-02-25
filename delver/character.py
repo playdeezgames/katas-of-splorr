@@ -22,14 +22,17 @@ class Character:
     def turn_around(self):
         self.facing = direction.OPPOSITES[self.facing]
 
-    def move_ahead(self):
+    def __move_in_direction(self, move_direction):
         if self.check_room_exits:
             room = self.dungeon.get_room(self.x, self.y)
-            if not room.has_exit(self.facing):
+            if not room.has_exit(move_direction):
                 return
-        delta = direction.DELTAS[self.facing]
+        delta = direction.DELTAS[move_direction]
         self.x += delta[0]
         self.y += delta[1]
+
+    def move_ahead(self):
+        self.__move_in_direction(self.facing)
 
     def move_left(self):
         old = self.check_room_exits
