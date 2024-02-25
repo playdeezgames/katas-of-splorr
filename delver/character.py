@@ -14,27 +14,22 @@ class Character:
             self.facing = new_facing
 
     def turn_left(self):
-        self.facing = [direction.WEST, direction.NORTH, direction.EAST, direction.SOUTH][self.facing]
+        self.facing = direction.LEFTS[self.facing]
 
     def turn_right(self):
-        self.facing = [direction.EAST, direction.SOUTH, direction.WEST, direction.NORTH][self.facing]
+        self.facing = direction.RIGHTS[self.facing]
 
     def turn_around(self):
-        self.facing = [direction.SOUTH, direction.WEST, direction.NORTH, direction.EAST][self.facing]
+        self.facing = direction.OPPOSITES[self.facing]
 
     def move_ahead(self):
         if self.check_room_exits:
             room = self.dungeon.get_room(self.x, self.y)
             if not room.has_exit(self.facing):
                 return
-        if self.facing == direction.SOUTH:
-            self.y += -1
-        elif self.facing == direction.EAST:
-            self.x += 1
-        elif self.facing == direction.WEST:
-            self.x += -1
-        else:
-            self.y += 1
+        delta = direction.DELTAS[self.facing]
+        self.x += delta[0]
+        self.y += delta[1]
 
     def move_left(self):
         self.turn_left()

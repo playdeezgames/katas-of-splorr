@@ -191,4 +191,3 @@ def test_character_lacks_room_exit_check_feature_flag():
     given_dungeon = dungeon.Dungeon(1, 1)
     sut = character.Character(given_dungeon)
     assert not sut.check_room_exits
-
