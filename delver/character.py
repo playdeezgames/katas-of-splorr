@@ -23,6 +23,10 @@ class Character:
         self.facing = [direction.SOUTH, direction.WEST, direction.NORTH, direction.EAST][self.facing]
 
     def move_ahead(self):
+        if self.check_room_exits:
+            room = self.dungeon.get_room(self.x, self.y)
+            if not room.has_exit(self.facing):
+                return
         if self.facing == direction.SOUTH:
             self.y += -1
         elif self.facing == direction.EAST:
