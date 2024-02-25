@@ -47,9 +47,12 @@ class Character:
         self.turn_left()
 
     def move_back(self):
+        old = self.check_room_exits
+        self.check_room_exits = True
         self.turn_around()
         self.move_ahead()
         self.turn_around()
+        self.check_room_exits = old
 
     def move_to(self, x, y):
         if (0 <= x < self.dungeon.columns) and (0 <= y < self.dungeon.rows):

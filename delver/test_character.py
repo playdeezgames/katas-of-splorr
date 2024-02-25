@@ -139,13 +139,23 @@ def test_character_moves_right(given_facing, steps, expected_x, expected_y):
     (direction.WEST, 2, 2, 0),
 ])
 def test_character_moves_back(given_facing, steps, expected_x, expected_y):
-    sut = character.Character(dungeon.Dungeon(1, 1))
+    offset_x = 2
+    offset_y = 2
+    dungeon_columns = 5
+    dungeon_rows = 5
+    my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
+    for column in range(dungeon_columns):
+        for row in range(dungeon_rows):
+            room = my_dungeon.get_room(column, row)
+            room.set_exit((given_facing + 2) % 4, True)
+    sut = character.Character(my_dungeon)
+    sut.move_to(offset_x, offset_y)
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_back()
     assert sut.facing == given_facing
-    assert sut.x == expected_x
-    assert sut.y == expected_y
+    assert sut.x == expected_x + offset_x
+    assert sut.y == expected_y + offset_y
 
 
 def test_characters_must_be_in_dungeon():
