@@ -197,7 +197,6 @@ def test_character_can_move_within_dungeon(dungeon_columns, dungeon_rows, given_
 def test_character_is_blocked_when_exit_does_not_exist_for_room():
     given_dungeon = dungeon.Dungeon(3, 3)
     sut = character.Character(given_dungeon)
-    sut.check_room_exits = True
     sut.move_to(1, 1)
     sut.move_ahead()
     assert sut.x == 1
