@@ -220,4 +220,4 @@ def test_character_is_blocked_when_exit_does_not_exist_for_room():
 def test_character_has_room_exit_check_feature_flag():
     given_dungeon = dungeon.Dungeon(1, 1)
     sut = character.Character(given_dungeon)
-    assert not sut.check_room_exits
+    assert sut.check_room_exits
