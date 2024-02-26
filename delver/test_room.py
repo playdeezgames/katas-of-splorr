@@ -147,3 +147,11 @@ def test_room_remove_character():
 def test_isolated_room_has_no_neighbors(given_direction):
     sut = room.Room()
     assert not sut.has_neighbor(given_direction)
+
+
+def test_assign_neighbor_for_room():
+    given_direction = direction.NORTH
+    sut = room.Room()
+    other_room = room.Room()
+    sut.set_neighbor(given_direction, other_room)
+    assert sut.has_neighbor(given_direction)

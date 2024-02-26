@@ -5,6 +5,7 @@ import direction
 class Room:
     def __init__(self):
         self.exits = [False for _ in range(len(direction.VALID_DIRECTIONS))]
+        self.neighbors = [None for _ in range(len(direction.VALID_DIRECTIONS))]
         self.characters = []
 
     def has_exit(self, exit_direction) -> bool:
@@ -23,4 +24,7 @@ class Room:
         self.characters = [c for c in self.characters if c != old_character]
 
     def has_neighbor(self, which_direction):
-        return False
+        return self.neighbors[which_direction] is not None
+
+    def set_neighbor(self, which_direction, new_neighbor):
+        self.neighbors[which_direction] = new_neighbor
