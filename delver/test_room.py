@@ -39,7 +39,7 @@ def test_room_contains_character_when_created(dungeon_columns, dungeon_rows, roo
     [
         (2, 1, 0, 0, 1, 0),
     ])
-def test_room_contains_character_when_moved(
+def test_room_contains_character_when_teleported(
         dungeon_columns,
         dungeon_rows,
         initial_room_column,
