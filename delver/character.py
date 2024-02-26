@@ -50,5 +50,4 @@ class Character:
             room.characters = [c for c in room.characters if c != self]
             self.x = x
             self.y = y
-            room = self.dungeon.get_room(self.x, self.y)
-            room.characters.append(self)
+            self.__place_in_room()
