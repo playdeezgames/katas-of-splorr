@@ -155,3 +155,5 @@ def test_assign_neighbor_for_room():
     other_room = room.Room()
     sut.set_neighbor(given_direction, other_room)
     assert sut.has_neighbor(given_direction)
+    actual = sut.get_neighbor(given_direction)
+    assert actual == other_room

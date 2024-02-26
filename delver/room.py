@@ -28,3 +28,6 @@ class Room:
 
     def set_neighbor(self, which_direction, new_neighbor):
         self.neighbors[which_direction] = new_neighbor
+
+    def get_neighbor(self, which_direction):
+        return self.neighbors[which_direction]
