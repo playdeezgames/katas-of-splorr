@@ -18,3 +18,6 @@ class Room:
 
     def place_character(self, new_character):
         self.characters.append(new_character)
+
+    def remove_character(self, old_character):
+        self.characters = [c for c in self.characters if c != old_character]

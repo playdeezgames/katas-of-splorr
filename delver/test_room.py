@@ -128,3 +128,11 @@ def test_room_add_character():
     my_character = character.Character(dungeon.Dungeon(1, 1))
     sut.place_character(my_character)
     assert sut.contains_character(my_character)
+
+
+def test_room_remove_character():
+    sut = room.Room()
+    my_character = character.Character(dungeon.Dungeon(1, 1))
+    sut.place_character(my_character)
+    sut.remove_character(my_character)
+    assert not sut.contains_character(my_character)
