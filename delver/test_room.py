@@ -70,3 +70,54 @@ def test_room_contains_character_when_moved_ahead(given_direction):
     final_room = my_dungeon.get_room(my_character.x, my_character.y)
     assert not initial_room.contains_character(my_character)
     assert final_room.contains_character(my_character)
+
+
+@pytest.mark.parametrize(
+    "given_direction",
+    [
+        direction.NORTH,
+    ])
+def test_room_contains_character_when_moved_left(given_direction):
+    my_dungeon = dungeon.Dungeon(3, 3)
+    my_character = character.Character(my_dungeon, 1, 1)
+    initial_room = my_dungeon.get_room(my_character.x, my_character.y)
+    initial_room.set_exit(direction.LEFTS[given_direction], True)
+    my_character.set_facing(given_direction)
+    my_character.move_left()
+    final_room = my_dungeon.get_room(my_character.x, my_character.y)
+    assert not initial_room.contains_character(my_character)
+    assert final_room.contains_character(my_character)
+
+
+@pytest.mark.parametrize(
+    "given_direction",
+    [
+        direction.NORTH,
+    ])
+def test_room_contains_character_when_moved_right(given_direction):
+    my_dungeon = dungeon.Dungeon(3, 3)
+    my_character = character.Character(my_dungeon, 1, 1)
+    initial_room = my_dungeon.get_room(my_character.x, my_character.y)
+    initial_room.set_exit(direction.RIGHTS[given_direction], True)
+    my_character.set_facing(given_direction)
+    my_character.move_right()
+    final_room = my_dungeon.get_room(my_character.x, my_character.y)
+    assert not initial_room.contains_character(my_character)
+    assert final_room.contains_character(my_character)
+
+
+@pytest.mark.parametrize(
+    "given_direction",
+    [
+        direction.NORTH,
+    ])
+def test_room_contains_character_when_moved_back(given_direction):
+    my_dungeon = dungeon.Dungeon(3, 3)
+    my_character = character.Character(my_dungeon, 1, 1)
+    initial_room = my_dungeon.get_room(my_character.x, my_character.y)
+    initial_room.set_exit(direction.OPPOSITES[given_direction], True)
+    my_character.set_facing(given_direction)
+    my_character.move_back()
+    final_room = my_dungeon.get_room(my_character.x, my_character.y)
+    assert not initial_room.contains_character(my_character)
+    assert final_room.contains_character(my_character)
