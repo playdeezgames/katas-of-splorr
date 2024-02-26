@@ -13,7 +13,7 @@ class Room:
     def set_exit(self, exit_direction, exit_state) -> None:
         self.exits[exit_direction] = exit_state
 
-    def contains_character(self, candidate_character: character.Character) -> bool:
+    def contains_character(self, candidate_character) -> bool:
         return candidate_character in self.characters
 
     def place_character(self, new_character):

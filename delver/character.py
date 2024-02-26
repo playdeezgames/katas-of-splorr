@@ -52,8 +52,8 @@ class Character:
         return self.dungeon.get_room(self.x, self.y)
 
     def __remove_from_room(self):
-        room = self.__get_room()
-        room.characters = [c for c in room.characters if c != self]
+        my_room = self.__get_room()
+        my_room.characters = [c for c in my_room.characters if c != self]
 
     def __place_in_room(self):
-        self.__get_room().characters.append(self)
+        self.__get_room().place_character(self)
