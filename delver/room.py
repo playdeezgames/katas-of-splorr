@@ -17,4 +17,4 @@ class Room:
         return candidate_character in self.characters
 
     def place_character(self, new_character):
-        pass
+        self.characters.append(new_character)
