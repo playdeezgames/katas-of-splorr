@@ -121,3 +121,10 @@ def test_room_contains_character_when_moved_back(given_direction):
     final_room = my_dungeon.get_room(my_character.x, my_character.y)
     assert not initial_room.contains_character(my_character)
     assert final_room.contains_character(my_character)
+
+
+def test_room_add_character():
+    sut = room.Room()
+    my_character = character.Character(dungeon.Dungeon(1, 1))
+    sut.place_character(my_character)
+    assert sut.contains_character(my_character)

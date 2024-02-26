@@ -16,3 +16,5 @@ class Room:
     def contains_character(self, candidate_character: character.Character) -> bool:
         return candidate_character in self.characters
 
+    def place_character(self, new_character):
+        pass
