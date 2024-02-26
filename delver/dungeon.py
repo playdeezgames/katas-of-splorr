@@ -7,5 +7,5 @@ class Dungeon:
         self.rows = rows
         self.rooms = [room.Room() for _ in range(columns * rows)]
 
-    def get_room(self, column, row):
+    def get_room(self, column, row) -> room.Room:
         return self.rooms[column + row * self.columns]
