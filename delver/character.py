@@ -50,5 +50,9 @@ class Character:
 
     def move_to(self, x, y) -> None:
         if (0 <= x < self.dungeon.columns) and (0 <= y < self.dungeon.rows):
+            room = self.dungeon.get_room(self.x, self.y)
+            room.characters = [c for c in room.characters if c != self]
             self.x = x
             self.y = y
+            room = self.dungeon.get_room(self.x, self.y)
+            room.characters.append(self)
