@@ -7,6 +7,9 @@ class Character:
         self.x = character_x
         self.y = character_y
         self.dungeon = new_dungeon
+        self.__place_in_room()
+
+    def __place_in_room(self):
         self.dungeon.get_room(self.x, self.y).characters.append(self)
 
     def set_facing(self, new_facing) -> None:
@@ -39,9 +42,7 @@ class Character:
         self.__move_in_direction(direction.RIGHTS[self.facing])
 
     def move_back(self) -> None:
-        self.turn_around()
-        self.move_ahead()
-        self.turn_around()
+        self.__move_in_direction(direction.OPPOSITES[self.facing])
 
     def move_to(self, x, y) -> None:
         if (0 <= x < self.dungeon.columns) and (0 <= y < self.dungeon.rows):
