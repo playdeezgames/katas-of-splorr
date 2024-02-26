@@ -23,6 +23,7 @@
       - [x] Rooms start with no exits 
       - [x] Rooms have a way for checking for an exit in a given direction
       - [x] Rooms have a way for setting an exit in a given direction
+      - [ ] Rooms track neighbors by direction
   - [x] Dungeons exist
     - [x] Dungeons contain a grid of rooms
   - [x] Characters and Rooms/Dungeons

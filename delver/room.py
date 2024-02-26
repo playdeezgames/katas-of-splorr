@@ -21,3 +21,6 @@ class Room:
 
     def remove_character(self, old_character):
         self.characters = [c for c in self.characters if c != old_character]
+
+    def has_neighbor(self, which_direction):
+        return False
