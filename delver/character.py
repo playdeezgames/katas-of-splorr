@@ -9,9 +9,6 @@ class Character:
         self.dungeon = new_dungeon
         self.__place_in_room()
 
-    def __place_in_room(self):
-        self.dungeon.get_room(self.x, self.y).characters.append(self)
-
     def set_facing(self, new_facing) -> None:
         if new_facing in direction.VALID_DIRECTIONS:
             self.facing = new_facing
@@ -54,3 +51,6 @@ class Character:
     def __remove_from_room(self):
         room = self.dungeon.get_room(self.x, self.y)
         room.characters = [c for c in room.characters if c != self]
+
+    def __place_in_room(self):
+        self.dungeon.get_room(self.x, self.y).characters.append(self)
