@@ -2,10 +2,10 @@ import direction
 
 
 class Character:
-    def __init__(self, new_dungeon):
+    def __init__(self, new_dungeon, character_x=0, character_y=0):
         self.facing = direction.NORTH
-        self.x = 0
-        self.y = 0
+        self.x = character_x
+        self.y = character_y
         self.dungeon = new_dungeon
         self.dungeon.get_room(self.x, self.y).characters.append(self)
 

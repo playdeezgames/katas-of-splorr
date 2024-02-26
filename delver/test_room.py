@@ -27,7 +27,7 @@ def test_room_set_exit(given_direction):
     (1, 1, 0, 0, True),
     (2, 1, 1, 0, False),
 ])
-def test_room_contains_character(dungeon_columns, dungeon_rows, room_column, room_row, expected_result):
+def test_room_contains_character_when_created(dungeon_columns, dungeon_rows, room_column, room_row, expected_result):
     my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
     sut = my_dungeon.get_room(room_column, room_row)
     my_character = character.Character(my_dungeon)
