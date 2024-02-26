@@ -201,3 +201,8 @@ def test_character_is_blocked_when_exit_does_not_exist_for_room():
     sut.move_ahead()
     assert sut.x == 1
     assert sut.y == 1
+
+
+def test_character_lacks_room_tracking_toggle():
+    sut = character.Character(dungeon.Dungeon(1, 1))
+    assert not sut.track_room

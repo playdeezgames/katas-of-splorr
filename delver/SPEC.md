@@ -32,3 +32,6 @@
       - [x] Characters cannot be placed outside a dungeons bounds 
       - [x] Character movement is determined by the room that they are in
       - [x] Rooms track the Characters that are in it
+  - [ ] Eliminate Dungeons
+    - [ ] Have characters track which room they are in directly, rather than tracking the dungeon and position within that dungeon
+    - [ ] add feature toggle that has characters track room rather than dungeon and xy
