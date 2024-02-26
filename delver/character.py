@@ -27,8 +27,7 @@ class Character:
         if not room.has_exit(move_direction):
             return
         delta = direction.DELTAS[move_direction]
-        self.x += delta[0]
-        self.y += delta[1]
+        self.move_to(self.x + delta[0], self.y + delta[1])
 
     def move_ahead(self) -> None:
         self.__move_in_direction(self.facing)
