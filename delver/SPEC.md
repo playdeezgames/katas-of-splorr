@@ -30,4 +30,4 @@
       - [x] Characters may be placed anywhere with the dungeon
       - [x] Characters cannot be placed outside a dungeons bounds 
       - [x] Character movement is determined by the room that they are in
-      - [ ] Rooms track the Characters that are in it
+      - [x] Rooms track the Characters that are in it
