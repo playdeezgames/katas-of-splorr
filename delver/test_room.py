@@ -138,7 +138,12 @@ def test_room_remove_character():
     assert not sut.contains_character(my_character)
 
 
-@pytest.mark.parametrize("given_direction", [direction.NORTH])
+@pytest.mark.parametrize("given_direction", [
+    direction.NORTH,
+    direction.EAST,
+    direction.SOUTH,
+    direction.WEST,
+])
 def test_isolated_room_has_no_neighbors(given_direction):
     sut = room.Room()
     assert not sut.has_neighbor(given_direction)
