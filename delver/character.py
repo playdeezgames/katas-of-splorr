@@ -7,6 +7,7 @@ class Character:
         self.x = 0
         self.y = 0
         self.dungeon = new_dungeon
+        self.dungeon.get_room(self.x, self.y).characters.append(self)
 
     def set_facing(self, new_facing):
         if new_facing in direction.VALID_DIRECTIONS:
