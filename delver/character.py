@@ -33,9 +33,7 @@ class Character:
         self.__move_in_direction(self.facing)
 
     def move_left(self) -> None:
-        self.turn_left()
-        self.move_ahead()
-        self.turn_right()
+        self.__move_in_direction(direction.LEFTS[self.facing])
 
     def move_right(self) -> None:
         self.turn_right()
