@@ -7,7 +7,8 @@ class Character:
         self.x = character_x
         self.y = character_y
         self.dungeon = new_dungeon
-        self.__place_in_room()
+        if new_dungeon is not None:
+            self.__place_in_room()
         self.track_room = new_room is not None
         self.room = new_room
 

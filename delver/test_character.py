@@ -2,6 +2,7 @@ import pytest
 import dungeon
 import character
 import direction
+import room
 
 
 def test_character_exists_and_initially_faces_north():
@@ -206,3 +207,9 @@ def test_character_is_blocked_when_exit_does_not_exist_for_room():
 def test_character_lacks_room_tracking_toggle():
     sut = character.Character(dungeon.Dungeon(1, 1))
     assert not sut.track_room
+
+
+def test_character_tracks_room():
+    my_room = room.Room()
+    sut = character.Character(None, 0, 0, my_room)
+    assert sut.track_room
