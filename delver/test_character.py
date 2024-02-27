@@ -216,7 +216,7 @@ def test_character_tracks_room():
 
 
 @pytest.mark.parametrize("given_direction", [direction.NORTH, direction.EAST, direction.SOUTH, direction.WEST])
-def test_character_allows_room_to_next_room_movement(given_direction):
+def test_character_allows_move_to_room_ahead(given_direction):
     next_room = room.Room()
     my_room = room.Room()
     my_room.set_neighbor(given_direction, next_room)
