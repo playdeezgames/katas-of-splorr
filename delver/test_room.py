@@ -50,7 +50,7 @@ def test_room_contains_character_when_teleported(
     my_character = character.Character(my_dungeon, initial_room_column, initial_room_row)
     initial_room = my_dungeon.get_room(initial_room_column, initial_room_row)
     final_room = my_dungeon.get_room(final_room_column, final_room_row)
-    my_character.move_to(final_room_column, final_room_row)
+    my_character.move_to_xy(final_room_column, final_room_row)
     assert not initial_room.contains_character(my_character)
     assert final_room.contains_character(my_character)
 

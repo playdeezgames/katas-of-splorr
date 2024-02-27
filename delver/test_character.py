@@ -94,7 +94,7 @@ def test_character_moves_ahead(given_facing, steps, expected_delta_x, expected_d
     offset_y = 2
     my_dungeon = __prep_dungeon_for_move_test(offset_x, offset_y, given_facing)
     sut = character.Character(my_dungeon)
-    sut.move_to(offset_x, offset_y)
+    sut.move_to_xy(offset_x, offset_y)
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_ahead()
@@ -118,7 +118,7 @@ def test_character_moves_left(given_facing, steps, expected_delta_x, expected_de
     offset_y = 2
     my_dungeon = __prep_dungeon_for_move_test(offset_x, offset_y, direction.LEFTS[given_facing])
     sut = character.Character(my_dungeon)
-    sut.move_to(offset_x, offset_y)
+    sut.move_to_xy(offset_x, offset_y)
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_left()
@@ -142,7 +142,7 @@ def test_character_moves_right(given_facing, steps, expected_delta_x, expected_d
     offset_y = 2
     my_dungeon = __prep_dungeon_for_move_test(offset_x, offset_y, direction.RIGHTS[given_facing])
     sut = character.Character(my_dungeon)
-    sut.move_to(offset_x, offset_y)
+    sut.move_to_xy(offset_x, offset_y)
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_right()
@@ -166,7 +166,7 @@ def test_character_moves_back(given_facing, steps, expected_delta_x, expected_de
     offset_y = 2
     my_dungeon = __prep_dungeon_for_move_test(offset_x, offset_y, direction.OPPOSITES[given_facing])
     sut = character.Character(my_dungeon)
-    sut.move_to(offset_x, offset_y)
+    sut.move_to_xy(offset_x, offset_y)
     sut.set_facing(given_facing)
     for step in range(steps):
         sut.move_back()
@@ -189,7 +189,7 @@ def test_characters_must_be_in_dungeon():
 def test_character_can_move_within_dungeon(dungeon_columns, dungeon_rows, given_x, given_y, expected_x, expected_y):
     given_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
     sut = character.Character(given_dungeon)
-    sut.move_to(given_x, given_y)
+    sut.move_to_xy(given_x, given_y)
     assert sut.x == expected_x
     assert sut.y == expected_y
 
@@ -197,7 +197,7 @@ def test_character_can_move_within_dungeon(dungeon_columns, dungeon_rows, given_
 def test_character_is_blocked_when_exit_does_not_exist_for_room():
     given_dungeon = dungeon.Dungeon(3, 3)
     sut = character.Character(given_dungeon)
-    sut.move_to(1, 1)
+    sut.move_to_xy(1, 1)
     sut.move_ahead()
     assert sut.x == 1
     assert sut.y == 1
