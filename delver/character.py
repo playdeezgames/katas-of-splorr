@@ -26,15 +26,12 @@ class Character:
         self.facing = direction.OPPOSITES[self.facing]
 
     def __move_in_direction(self, move_direction) -> None:
+        room = self.get_room()
+        if not room.has_exit(move_direction):
+            return
         if self.track_room:
-            room = self.get_room()
-            if not room.has_exit(move_direction):
-                return
             self.room = room.get_neighbor(move_direction)
         else:
-            room = self.get_room()
-            if not room.has_exit(move_direction):
-                return
             delta = direction.DELTAS[move_direction]
             self.move_to_xy(self.x + delta[0], self.y + delta[1])
 
