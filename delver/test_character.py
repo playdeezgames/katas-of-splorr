@@ -213,3 +213,15 @@ def test_character_tracks_room():
     my_room = room.Room()
     sut = character.Character(None, 0, 0, my_room)
     assert sut.track_room
+
+
+def test_character_allows_room_to_room_movement():
+    my_direction = direction.NORTH
+    next_room = room.Room()
+    my_room = room.Room()
+    my_room.set_neighbor(my_direction, next_room)
+    my_room.set_exit(my_direction, True)
+    sut = character.Character(None, 0, 0, my_room)
+    sut.set_facing(my_direction)
+    sut.move_ahead()
+    assert sut.get_room() == next_room

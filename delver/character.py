@@ -7,10 +7,10 @@ class Character:
         self.x = character_x
         self.y = character_y
         self.dungeon = new_dungeon
-        if new_dungeon is not None:
-            self.__place_in_room()
         self.track_room = new_room is not None
         self.room = new_room
+        if new_dungeon is not None:
+            self.__place_in_room()
 
     def set_facing(self, new_facing) -> None:
         if new_facing in direction.VALID_DIRECTIONS:
@@ -26,11 +26,17 @@ class Character:
         self.facing = direction.OPPOSITES[self.facing]
 
     def __move_in_direction(self, move_direction) -> None:
-        room = self.dungeon.get_room(self.x, self.y)
-        if not room.has_exit(move_direction):
-            return
-        delta = direction.DELTAS[move_direction]
-        self.move_to_xy(self.x + delta[0], self.y + delta[1])
+        if self.track_room:
+            room = self.get_room()
+            if not room.has_exit(move_direction):
+                return
+            self.room = room.get_neighbor(move_direction)
+        else:
+            room = self.dungeon.get_room(self.x, self.y)
+            if not room.has_exit(move_direction):
+                return
+            delta = direction.DELTAS[move_direction]
+            self.move_to_xy(self.x + delta[0], self.y + delta[1])
 
     def move_ahead(self) -> None:
         self.__move_in_direction(self.facing)
@@ -51,11 +57,14 @@ class Character:
             self.y = y
             self.__place_in_room()
 
-    def __get_room(self):
-        return self.dungeon.get_room(self.x, self.y)
+    def get_room(self):
+        if self.track_room:
+            return self.room
+        else:
+            return self.dungeon.get_room(self.x, self.y)
 
     def __remove_from_room(self):
-        self.__get_room().remove_character(self)
+        self.get_room().remove_character(self)
 
     def __place_in_room(self):
-        self.__get_room().place_character(self)
+        self.get_room().place_character(self)
