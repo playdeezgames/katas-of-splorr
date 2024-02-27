@@ -32,7 +32,7 @@ class Character:
                 return
             self.room = room.get_neighbor(move_direction)
         else:
-            room = self.dungeon.get_room(self.x, self.y)
+            room = self.get_room()
             if not room.has_exit(move_direction):
                 return
             delta = direction.DELTAS[move_direction]
