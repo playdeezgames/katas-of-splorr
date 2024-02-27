@@ -2,7 +2,7 @@ import direction
 
 
 class Character:
-    def __init__(self, new_dungeon=None, character_x=0, character_y=0, track_room=False):
+    def __init__(self, new_dungeon=None, character_x=0, character_y=0, track_room=False, new_room=None):
         self.facing = direction.NORTH
         self.x = character_x
         self.y = character_y
