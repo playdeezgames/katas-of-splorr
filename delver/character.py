@@ -2,13 +2,13 @@ import direction
 
 
 class Character:
-    def __init__(self, new_dungeon, character_x=0, character_y=0):
+    def __init__(self, new_dungeon, character_x=0, character_y=0, track_room=False):
         self.facing = direction.NORTH
         self.x = character_x
         self.y = character_y
         self.dungeon = new_dungeon
         self.__place_in_room()
-        self.track_room = False
+        self.track_room = track_room
 
     def set_facing(self, new_facing) -> None:
         if new_facing in direction.VALID_DIRECTIONS:
