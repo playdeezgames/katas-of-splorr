@@ -225,3 +225,16 @@ def test_character_allows_move_to_room_ahead(given_direction):
     sut.set_facing(given_direction)
     sut.move_ahead()
     assert sut.get_room() == next_room
+
+
+@pytest.mark.parametrize("given_direction", [direction.NORTH, direction.EAST, direction.SOUTH, direction.WEST])
+def test_character_allows_move_to_room_left(given_direction):
+    next_room = room.Room()
+    my_room = room.Room()
+    left_direction = direction.LEFTS[given_direction]
+    my_room.set_neighbor(left_direction, next_room)
+    my_room.set_exit(left_direction, True)
+    sut = character.Character(None, 0, 0, my_room)
+    sut.set_facing(given_direction)
+    sut.move_left()
+    assert sut.get_room() == next_room
