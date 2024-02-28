@@ -33,15 +33,18 @@ def test_room_contains_character_when_created():
     "given_direction",
     [
         direction.NORTH,
+        direction.EAST,
+        direction.SOUTH,
+        direction.WEST,
     ])
 def test_room_contains_character_when_moved_ahead(given_direction):
-    my_dungeon = dungeon.Dungeon(3, 3)
-    my_character = character.Character(my_dungeon, 1, 1)
-    initial_room = my_dungeon.get_room(my_character.x, my_character.y)
+    initial_room = room.Room()
     initial_room.set_exit(given_direction, True)
+    final_room = room.Room()
+    initial_room.set_neighbor(given_direction, final_room)
+    my_character = character.Character(None, 1, 1, initial_room)
     my_character.set_facing(given_direction)
     my_character.move_ahead()
-    final_room = my_dungeon.get_room(my_character.x, my_character.y)
     assert not initial_room.contains_character(my_character)
     assert final_room.contains_character(my_character)
 
