@@ -19,7 +19,7 @@ def test_character_exists_and_initially_faces_north():
         (99, direction.NORTH),
     ])
 def test_character_set_facing(given_facing, expected_facing):
-    sut = character.Character(dungeon.Dungeon(1, 1))
+    sut = character.Character(None, 0, 0, room.Room())
     sut.set_facing(given_facing)
     assert sut.facing == expected_facing
 
