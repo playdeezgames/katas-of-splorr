@@ -24,14 +24,6 @@
       - [x] Rooms have a way for checking for an exit in a given direction
       - [x] Rooms have a way for setting an exit in a given direction
     - [x] Rooms track neighbors by direction
-  - [x] Dungeons exist
-    - [x] Dungeons contain a grid of rooms
-  - [x] Characters and Rooms/Dungeons
-    - [x] Characters must be in a dungeon
-      - [x] Characters may be placed anywhere with the dungeon
-      - [x] Characters cannot be placed outside a dungeons bounds 
-      - [x] Character movement is determined by the room that they are in
-      - [x] Rooms track the Characters that are in it
-  - [ ] Eliminate Dungeons
-    - [ ] Have characters track which room they are in directly, rather than tracking the dungeon and position within that dungeon
-    - [ ] add feature toggle that has characters track room rather than dungeon and xy
+  - [x] Characters and Rooms
+    - [x] Character movement is determined by the room that they are in
+    - [x] Rooms track the Characters that are in it
