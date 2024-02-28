@@ -1,2 +1,2 @@
-class Inventory():
+class Inventory:
     pass
