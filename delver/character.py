@@ -9,8 +9,7 @@ class Character:
         self.dungeon = new_dungeon
         self.track_room = new_room is not None
         self.room = new_room
-        if new_dungeon is not None:
-            self.__place_in_room()
+        self.__place_in_room()
 
     def set_facing(self, new_facing) -> None:
         if new_facing in direction.VALID_DIRECTIONS:
