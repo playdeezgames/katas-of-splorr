@@ -5,7 +5,7 @@ import room
 
 
 def __create_character_sut(my_room):
-    return character.Character(None, 0, 0, my_room)
+    return character.Character( my_room)
 
 
 def test_character_exists_and_initially_faces_north():

@@ -23,7 +23,7 @@ def test_room_set_exit(given_direction):
 
 
 def __create_character(my_room):
-    return character.Character(None, 0, 0, my_room)
+    return character.Character(my_room)
 
 
 def test_room_contains_character_when_created():
