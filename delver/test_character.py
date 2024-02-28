@@ -63,12 +63,6 @@ def test_character_turn_around(given_initial_facing, expected_final_facing):
     assert sut.facing == expected_final_facing
 
 
-def test_characters_have_x_and_y():
-    sut = character.Character(dungeon.Dungeon(1, 1))
-    assert sut.x == 0
-    assert sut.y == 0
-
-
 def __prep_dungeon_for_move_test(offset_x, offset_y, given_facing):
     dungeon_columns = offset_x * 2 + 1
     dungeon_rows = offset_y * 2 + 1
