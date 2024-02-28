@@ -111,14 +111,14 @@ def test_room_contains_character_when_moved_back(given_direction):
 
 def test_room_add_character():
     sut = room.Room()
-    my_character = character.Character(dungeon.Dungeon(1, 1))
+    my_character = character.Character(None, 0, 0, room.Room())
     sut.place_character(my_character)
     assert sut.contains_character(my_character)
 
 
 def test_room_remove_character():
     sut = room.Room()
-    my_character = character.Character(dungeon.Dungeon(1, 1))
+    my_character = character.Character(None, 0, 0, room.Room())
     sut.place_character(my_character)
     sut.remove_character(my_character)
     assert not sut.contains_character(my_character)
