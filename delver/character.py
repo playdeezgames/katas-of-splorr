@@ -4,8 +4,6 @@ import direction
 class Character:
     def __init__(self, new_dungeon=None, character_x=0, character_y=0, new_room=None):
         self.facing = direction.NORTH
-        self.x = character_x
-        self.y = character_y
         self.track_room = new_room is not None
         self.room = new_room
         self.__place_in_room()
