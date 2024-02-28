@@ -31,3 +31,11 @@ def test_inventory_can_add_item_only_once():
     sut.add_item(my_item)
     sut.add_item(my_item)
     assert len(sut.items) == 1
+
+
+def test_inventory_can_remove_item():
+    sut = inventory.Inventory()
+    my_item = item.Item()
+    sut.add_item(my_item)
+    sut.remove_item(my_item)
+    assert not sut.contains_item(my_item)

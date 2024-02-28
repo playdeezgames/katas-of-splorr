@@ -8,3 +8,6 @@ class Inventory:
     def add_item(self, item):
         if not self.contains_item(item):
             self.items.append(item)
+
+    def remove_item(self, item):
+        self.items = [i for i in self.items if i != item]

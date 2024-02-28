@@ -30,7 +30,7 @@
   - [x] Items Exist
   - [x] Inventories Exist
   - [x] Items may be placed into an inventory
-    - [ ] Items may only exist once within an inventory
+    - [x] Items may only exist once within an inventory
   - [ ] Items may be removed from an inventory
   - [ ] A Room has an inventory
   - [ ] A Character has an inventory
