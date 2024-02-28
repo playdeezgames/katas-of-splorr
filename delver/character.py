@@ -6,7 +6,6 @@ class Character:
         self.facing = direction.NORTH
         self.x = character_x
         self.y = character_y
-        self.dungeon = new_dungeon
         self.track_room = new_room is not None
         self.room = new_room
         self.__place_in_room()
