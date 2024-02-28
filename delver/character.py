@@ -2,7 +2,7 @@ import direction
 
 
 class Character:
-    def __init__(self, new_room=None):
+    def __init__(self, new_room):
         self.facing = direction.NORTH
         self.room = new_room
         self.__place_in_room()
