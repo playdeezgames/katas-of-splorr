@@ -1,7 +1,6 @@
 import pytest
 
 import character
-import dungeon
 import room
 import direction
 
