@@ -11,3 +11,6 @@ class Inventory:
 
     def remove_item(self, item):
         self.items = [i for i in self.items if i != item]
+
+    def is_empty(self):
+        return len(self.items) == 0

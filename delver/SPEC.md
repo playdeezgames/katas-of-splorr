@@ -31,7 +31,8 @@
   - [x] Inventories Exist
   - [x] Items may be placed into an inventory
     - [x] Items may only exist once within an inventory
-  - [ ] Items may be removed from an inventory
+    - [ ] Convenient way of checking that inventory is empty
+  - [x] Items may be removed from an inventory
   - [ ] A Room has an inventory
   - [ ] A Character has an inventory
   - [ ] A Character may pick up an item
