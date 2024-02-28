@@ -23,15 +23,10 @@ def test_room_set_exit(given_direction):
     assert sut.has_exit(given_direction), f"room does not have an exit in direction {given_direction}"
 
 
-@pytest.mark.parametrize("dungeon_columns, dungeon_rows, room_column, room_row, expected_result", [
-    (1, 1, 0, 0, True),
-    (2, 1, 1, 0, False),
-])
-def test_room_contains_character_when_created(dungeon_columns, dungeon_rows, room_column, room_row, expected_result):
-    my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
-    sut = my_dungeon.get_room(room_column, room_row)
-    my_character = character.Character(my_dungeon)
-    assert sut.contains_character(my_character) == expected_result
+def test_room_contains_character_when_created():
+    sut = room.Room()
+    my_character = character.Character(None, 0, 0, sut)
+    assert sut.contains_character(my_character)
 
 
 @pytest.mark.parametrize(
