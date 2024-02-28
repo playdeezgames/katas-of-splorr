@@ -57,7 +57,7 @@ def test_character_turn_right(given_initial_facing, expected_final_facing):
     (direction.WEST, direction.EAST),
 ])
 def test_character_turn_around(given_initial_facing, expected_final_facing):
-    sut = character.Character(dungeon.Dungeon(1, 1))
+    sut = character.Character(None, 0, 0, room.Room())
     sut.set_facing(given_initial_facing)
     sut.turn_around()
     assert sut.facing == expected_final_facing
