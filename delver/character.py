@@ -44,13 +44,6 @@ class Character:
     def move_back(self) -> None:
         self.__move_in_direction(direction.OPPOSITES[self.facing])
 
-    def move_to_xy(self, x, y) -> None:
-        if (0 <= x < self.dungeon.columns) and (0 <= y < self.dungeon.rows):
-            self.__remove_from_room()
-            self.x = x
-            self.y = y
-            self.__place_in_room()
-
     def get_room(self):
         return self.room
 
