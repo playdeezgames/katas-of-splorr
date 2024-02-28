@@ -27,3 +27,17 @@
   - [x] Characters and Rooms
     - [x] Character movement is determined by the room that they are in
     - [x] Rooms track the Characters that are in it
+  - [ ] Items Exist
+  - [ ] Inventories Exist
+  - [ ] Items may be placed into an inventory
+  - [ ] Items may be removed from an inventory
+  - [ ] A Room has an inventory
+  - [ ] A Character has an inventory
+  - [ ] A Character may pick up an item
+    - [ ] Item must be in Room's inventory that Character is in
+    - [ ] Item will leave Room's inventory
+    - [ ] Item will enter Character's inventory
+  - [ ] A Character may drop an item
+    - [ ] Item must be in Character's inventory
+    - [ ] Item will leave Character's inventory
+    - [ ] Item will enter Room inventory that the Character is in
