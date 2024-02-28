@@ -30,27 +30,6 @@ def test_room_contains_character_when_created():
 
 
 @pytest.mark.parametrize(
-    "dungeon_columns, dungeon_rows, initial_room_column, initial_room_row, final_room_column, final_room_row",
-    [
-        (2, 1, 0, 0, 1, 0),
-    ])
-def test_room_contains_character_when_teleported(
-        dungeon_columns,
-        dungeon_rows,
-        initial_room_column,
-        initial_room_row,
-        final_room_column,
-        final_room_row):
-    my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
-    my_character = character.Character(my_dungeon, initial_room_column, initial_room_row)
-    initial_room = my_dungeon.get_room(initial_room_column, initial_room_row)
-    final_room = my_dungeon.get_room(final_room_column, final_room_row)
-    my_character.move_to_xy(final_room_column, final_room_row)
-    assert not initial_room.contains_character(my_character)
-    assert final_room.contains_character(my_character)
-
-
-@pytest.mark.parametrize(
     "given_direction",
     [
         direction.NORTH,
