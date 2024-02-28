@@ -28,7 +28,7 @@
     - [x] Character movement is determined by the room that they are in
     - [x] Rooms track the Characters that are in it
   - [x] Items Exist
-  - [ ] Inventories Exist
+  - [x] Inventories Exist
   - [ ] Items may be placed into an inventory
   - [ ] Items may be removed from an inventory
   - [ ] A Room has an inventory
