@@ -69,12 +69,6 @@ def test_character_is_blocked_when_exit_does_not_exist_for_room():
     assert sut.get_room() == my_room
 
 
-def test_character_tracks_room():
-    my_room = room.Room()
-    sut = character.Character(None, 0, 0, my_room)
-    assert sut.track_room
-
-
 @pytest.mark.parametrize("given_direction", [direction.NORTH, direction.EAST, direction.SOUTH, direction.WEST])
 def test_character_allows_move_to_room_ahead(given_direction):
     next_room = room.Room()
