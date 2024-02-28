@@ -22,9 +22,13 @@ def test_room_set_exit(given_direction):
     assert sut.has_exit(given_direction), f"room does not have an exit in direction {given_direction}"
 
 
+def __create_character(my_room):
+    return character.Character(None, 0, 0, my_room)
+
+
 def test_room_contains_character_when_created():
     sut = room.Room()
-    my_character = character.Character(None, 0, 0, sut)
+    my_character = __create_character(sut)
     assert sut.contains_character(my_character)
 
 
@@ -41,7 +45,7 @@ def test_room_contains_character_when_moved_ahead(given_direction):
     initial_room.set_exit(given_direction, True)
     final_room = room.Room()
     initial_room.set_neighbor(given_direction, final_room)
-    my_character = character.Character(None, 1, 1, initial_room)
+    my_character = __create_character(initial_room)
     my_character.set_facing(given_direction)
     my_character.move_ahead()
     assert not initial_room.contains_character(my_character)
@@ -61,7 +65,7 @@ def test_room_contains_character_when_moved_left(given_direction):
     initial_room.set_exit(direction.LEFTS[given_direction], True)
     final_room = room.Room()
     initial_room.set_neighbor(direction.LEFTS[given_direction], final_room)
-    my_character = character.Character(None, 1, 1, initial_room)
+    my_character = __create_character(initial_room)
     my_character.set_facing(given_direction)
     my_character.move_left()
     assert not initial_room.contains_character(my_character)
@@ -81,7 +85,7 @@ def test_room_contains_character_when_moved_right(given_direction):
     initial_room.set_exit(direction.RIGHTS[given_direction], True)
     final_room = room.Room()
     initial_room.set_neighbor(direction.RIGHTS[given_direction], final_room)
-    my_character = character.Character(None, 1, 1, initial_room)
+    my_character = __create_character(initial_room)
     my_character.set_facing(given_direction)
     my_character.move_right()
     assert not initial_room.contains_character(my_character)
@@ -101,7 +105,7 @@ def test_room_contains_character_when_moved_back(given_direction):
     initial_room.set_exit(direction.OPPOSITES[given_direction], True)
     final_room = room.Room()
     initial_room.set_neighbor(direction.OPPOSITES[given_direction], final_room)
-    my_character = character.Character(None, 1, 1, initial_room)
+    my_character = __create_character(initial_room)
     my_character.set_facing(given_direction)
     my_character.move_back()
     assert not initial_room.contains_character(my_character)
@@ -110,14 +114,14 @@ def test_room_contains_character_when_moved_back(given_direction):
 
 def test_room_add_character():
     sut = room.Room()
-    my_character = character.Character(None, 0, 0, room.Room())
+    my_character = __create_character(room.Room())
     sut.place_character(my_character)
     assert sut.contains_character(my_character)
 
 
 def test_room_remove_character():
     sut = room.Room()
-    my_character = character.Character(None, 0, 0, room.Room())
+    my_character = __create_character(room.Room())
     sut.place_character(my_character)
     sut.remove_character(my_character)
     assert not sut.contains_character(my_character)
