@@ -4,8 +4,12 @@ import direction
 import room
 
 
+def __create_character_sut(my_room):
+    return character.Character(None, 0, 0, my_room)
+
+
 def test_character_exists_and_initially_faces_north():
-    sut = character.Character(None, 0, 0, room.Room())
+    sut = __create_character_sut(room.Room())
     assert sut.facing == direction.NORTH
 
 
@@ -18,7 +22,7 @@ def test_character_exists_and_initially_faces_north():
         (99, direction.NORTH),
     ])
 def test_character_set_facing(given_facing, expected_facing):
-    sut = character.Character(None, 0, 0, room.Room())
+    sut = __create_character_sut(room.Room())
     sut.set_facing(given_facing)
     assert sut.facing == expected_facing
 
@@ -30,7 +34,7 @@ def test_character_set_facing(given_facing, expected_facing):
     (direction.EAST, direction.NORTH),
 ])
 def test_character_turn_left(given_initial_facing, expected_final_facing):
-    sut = character.Character(None, 0, 0, room.Room())
+    sut = __create_character_sut(room.Room())
     sut.set_facing(given_initial_facing)
     sut.turn_left()
     assert sut.facing == expected_final_facing
@@ -43,7 +47,7 @@ def test_character_turn_left(given_initial_facing, expected_final_facing):
     (direction.WEST, direction.NORTH),
 ])
 def test_character_turn_right(given_initial_facing, expected_final_facing):
-    sut = character.Character(None, 0, 0, room.Room())
+    sut = __create_character_sut(room.Room())
     sut.set_facing(given_initial_facing)
     sut.turn_right()
     assert sut.facing == expected_final_facing
@@ -56,7 +60,7 @@ def test_character_turn_right(given_initial_facing, expected_final_facing):
     (direction.WEST, direction.EAST),
 ])
 def test_character_turn_around(given_initial_facing, expected_final_facing):
-    sut = character.Character(None, 0, 0, room.Room())
+    sut = __create_character_sut(room.Room())
     sut.set_facing(given_initial_facing)
     sut.turn_around()
     assert sut.facing == expected_final_facing
@@ -64,7 +68,7 @@ def test_character_turn_around(given_initial_facing, expected_final_facing):
 
 def test_character_is_blocked_when_exit_does_not_exist_for_room():
     my_room = room.Room()
-    sut = character.Character(None, 0, 0, my_room)
+    sut = __create_character_sut(my_room)
     sut.move_ahead()
     assert sut.get_room() == my_room
 
@@ -75,7 +79,7 @@ def test_character_allows_move_to_room_ahead(given_direction):
     my_room = room.Room()
     my_room.set_neighbor(given_direction, next_room)
     my_room.set_exit(given_direction, True)
-    sut = character.Character(None, 0, 0, my_room)
+    sut = __create_character_sut(my_room)
     sut.set_facing(given_direction)
     sut.move_ahead()
     assert sut.get_room() == next_room
@@ -88,7 +92,7 @@ def test_character_allows_move_to_room_left(given_direction):
     left_direction = direction.LEFTS[given_direction]
     my_room.set_neighbor(left_direction, next_room)
     my_room.set_exit(left_direction, True)
-    sut = character.Character(None, 0, 0, my_room)
+    sut = __create_character_sut(my_room)
     sut.set_facing(given_direction)
     sut.move_left()
     assert sut.get_room() == next_room
@@ -101,7 +105,7 @@ def test_character_allows_move_to_room_right(given_direction):
     right_direction = direction.RIGHTS[given_direction]
     my_room.set_neighbor(right_direction, next_room)
     my_room.set_exit(right_direction, True)
-    sut = character.Character(None, 0, 0, my_room)
+    sut = __create_character_sut(my_room)
     sut.set_facing(given_direction)
     sut.move_right()
     assert sut.get_room() == next_room
@@ -114,7 +118,7 @@ def test_character_allows_move_to_room_behind(given_direction):
     back_direction = direction.OPPOSITES[given_direction]
     my_room.set_neighbor(back_direction, next_room)
     my_room.set_exit(back_direction, True)
-    sut = character.Character(None, 0, 0, my_room)
+    sut = __create_character_sut(my_room)
     sut.set_facing(given_direction)
     sut.move_back()
     assert sut.get_room() == next_room
