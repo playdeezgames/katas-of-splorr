@@ -16,3 +16,10 @@ def test_inventory_when_empty_does_not_contain_given_item():
     sut = inventory.Inventory()
     my_item = item.Item()
     assert not sut.contains_item(my_item)
+
+
+def test_inventory_can_add_item():
+    sut = inventory.Inventory()
+    my_item = item.Item()
+    sut.add_item(my_item)
+    assert sut.contains_item(my_item)

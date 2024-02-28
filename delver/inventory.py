@@ -3,4 +3,7 @@ class Inventory:
         self.items = []
 
     def contains_item(self, item):
-        pass
+        return item in self.items
+
+    def add_item(self, item):
+        self.items.append(item)
