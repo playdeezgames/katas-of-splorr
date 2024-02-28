@@ -29,7 +29,9 @@ class Character:
         if not room.has_exit(move_direction):
             return
         if self.track_room:
+            self.__remove_from_room()
             self.room = room.get_neighbor(move_direction)
+            self.__place_in_room()
         else:
             delta = direction.DELTAS[move_direction]
             self.move_to_xy(self.x + delta[0], self.y + delta[1])
