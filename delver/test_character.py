@@ -6,7 +6,7 @@ import room
 
 
 def test_character_exists_and_initially_faces_north():
-    sut = character.Character(dungeon.Dungeon(1, 1))
+    sut = character.Character(None, 0, 0, room.Room())
     assert sut.facing == direction.NORTH
 
 
@@ -75,8 +75,8 @@ def __prep_dungeon_for_move_test(offset_x, offset_y, given_facing):
     my_dungeon = dungeon.Dungeon(dungeon_columns, dungeon_rows)
     for column in range(dungeon_columns):
         for row in range(dungeon_rows):
-            room = my_dungeon.get_room(column, row)
-            room.set_exit(given_facing, True)
+            my_room = my_dungeon.get_room(column, row)
+            my_room.set_exit(given_facing, True)
     return my_dungeon
 
 
