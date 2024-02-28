@@ -6,4 +6,5 @@ class Inventory:
         return item in self.items
 
     def add_item(self, item):
-        self.items.append(item)
+        if not self.contains_item(item):
+            self.items.append(item)
