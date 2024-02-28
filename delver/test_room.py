@@ -53,6 +53,9 @@ def test_room_contains_character_when_moved_ahead(given_direction):
     "given_direction",
     [
         direction.NORTH,
+        direction.EAST,
+        direction.SOUTH,
+        direction.WEST,
     ])
 def test_room_contains_character_when_moved_left(given_direction):
     my_dungeon = dungeon.Dungeon(3, 3)
@@ -70,6 +73,9 @@ def test_room_contains_character_when_moved_left(given_direction):
     "given_direction",
     [
         direction.NORTH,
+        direction.EAST,
+        direction.SOUTH,
+        direction.WEST,
     ])
 def test_room_contains_character_when_moved_right(given_direction):
     my_dungeon = dungeon.Dungeon(3, 3)
@@ -87,6 +93,9 @@ def test_room_contains_character_when_moved_right(given_direction):
     "given_direction",
     [
         direction.NORTH,
+        direction.EAST,
+        direction.SOUTH,
+        direction.WEST,
     ])
 def test_room_contains_character_when_moved_back(given_direction):
     my_dungeon = dungeon.Dungeon(3, 3)
