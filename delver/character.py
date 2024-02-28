@@ -56,10 +56,7 @@ class Character:
             self.__place_in_room()
 
     def get_room(self):
-        if self.track_room:
-            return self.room
-        else:
-            return self.dungeon.get_room(self.x, self.y)
+        return self.room
 
     def __remove_from_room(self):
         self.get_room().remove_character(self)
