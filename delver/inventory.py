@@ -1,2 +1,3 @@
 class Inventory:
-    pass
+    def __init__(self):
+        self.items = []
