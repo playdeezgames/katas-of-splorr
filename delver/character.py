@@ -6,6 +6,7 @@ class Character:
     def __init__(self, new_room):
         self.facing = direction.NORTH
         self.room = new_room
+        self.health = 3
         self.inventory = inventory.Inventory()
         self.__place_in_room()
 
