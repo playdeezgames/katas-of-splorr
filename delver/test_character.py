@@ -158,3 +158,12 @@ def test_character_drop_item():
     sut.drop_item(my_item)
     assert my_room.get_inventory().contains_item(my_item)
     assert not sut.get_inventory().contains_item(my_item)
+
+
+def test_character_cannot_drop_item_when_item_not_in_inventory():
+    my_room = room.Room()
+    my_item = item.Item()
+    sut = __create_character_sut(my_room)
+    sut.drop_item(my_item)
+    assert not my_room.get_inventory().contains_item(my_item)
+    assert not sut.get_inventory().contains_item(my_item)

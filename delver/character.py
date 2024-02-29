@@ -60,5 +60,6 @@ class Character:
             self.get_inventory().add_item(item)
 
     def drop_item(self, item):
-        self.get_inventory().remove_item(item)
-        self.get_room().get_inventory().add_item(item)
+        if self.get_inventory().contains_item(item):
+            self.get_inventory().remove_item(item)
+            self.get_room().get_inventory().add_item(item)

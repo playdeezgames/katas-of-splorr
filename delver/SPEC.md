@@ -41,5 +41,5 @@
     - [x] Item will enter Character's inventory
   - [ ] A Character may drop an item
     - [ ] Item must be in Character's inventory
-    - [ ] Item will leave Character's inventory
-    - [ ] Item will enter Room inventory that the Character is in
+    - [x] Item will leave Character's inventory
+    - [x] Item will enter Room inventory that the Character is in
