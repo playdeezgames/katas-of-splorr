@@ -122,3 +122,9 @@ def test_character_allows_move_to_room_behind(given_direction):
     sut.set_facing(given_direction)
     sut.move_back()
     assert sut.get_room() == next_room
+
+
+def test_character_has_inventory():
+    my_room = room.Room()
+    sut = __create_character_sut(my_room)
+    assert sut.get_inventory() is not None

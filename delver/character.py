@@ -1,10 +1,12 @@
 import direction
+import inventory
 
 
 class Character:
     def __init__(self, new_room):
         self.facing = direction.NORTH
         self.room = new_room
+        self.inventory = inventory.Inventory()
         self.__place_in_room()
 
     def set_facing(self, new_facing) -> None:
@@ -48,3 +50,6 @@ class Character:
 
     def __place_in_room(self):
         self.get_room().place_character(self)
+
+    def get_inventory(self):
+        return self.inventory

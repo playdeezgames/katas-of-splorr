@@ -33,8 +33,8 @@
     - [x] Items may only exist once within an inventory
     - [x] Convenient way of checking that inventory is empty
   - [x] Items may be removed from an inventory
-  - [ ] A Room has an inventory
-  - [ ] A Character has an inventory
+  - [x] A Room has an inventory
+  - [x] A Character has an inventory
   - [ ] A Character may pick up an item
     - [ ] Item must be in Room's inventory that Character is in
     - [ ] Item will leave Room's inventory
