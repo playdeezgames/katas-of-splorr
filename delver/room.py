@@ -46,5 +46,6 @@ class Room:
             self.features.append(feature)
 
     def remove_feature(self, feature):
-        self.features.remove(feature)
-        feature.room = None
+        if self.has_feature(feature):
+            self.features.remove(feature)
+            feature.room = None
