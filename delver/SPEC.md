@@ -52,9 +52,9 @@
   - [ ] Features exist
     - [ ] Features exist in rooms
       - [ ] Room is aware of Feature
-        - [ ] Check that a feature is contained in a room
-        - [ ] Add a Feature to a Room
-        - [ ] Remove a Feature from a Room
+        - [x] Check that a feature is contained in a room
+        - [x] Add a Feature to a Room
+        - [x] Remove a Feature from a Room
       - [ ] Feature is aware of Room
       - [ ] Corpse Feature
     - [ ] Features have an inventory

@@ -179,3 +179,12 @@ def test_room_add_feature_highlander_style():
     sut.add_feature(my_feature)
     assert sut.has_feature(my_feature)
     assert len(sut.features) == 1
+
+
+def test_room_remove_feature():
+    sut = room.Room()
+    my_feature = feature.Feature()
+    sut.add_feature(my_feature)
+    sut.remove_feature(my_feature)
+    assert not sut.has_feature(my_feature)
+

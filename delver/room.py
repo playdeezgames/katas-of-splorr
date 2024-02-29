@@ -43,3 +43,6 @@ class Room:
     def add_feature(self, feature):
         if not self.has_feature(feature):
             self.features.append(feature)
+
+    def remove_feature(self, feature):
+        self.features.remove(feature)
