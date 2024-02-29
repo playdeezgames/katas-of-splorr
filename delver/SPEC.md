@@ -55,10 +55,9 @@
         - [x] Check that a feature is contained in a room
         - [x] Add a Feature to a Room
         - [x] Remove a Feature from a Room
-      - [ ] Feature is aware of Room
-      - [ ] Corpse Feature
+      - [x] Feature is aware of Room
     - [ ] Features have an inventory
-    - [ ] A Character leaves a corpse when he dies, with all the items from the character in the feature
+    - [ ] A Character leaves a corpse feature when he dies, with all the items from the character in the feature
   - [ ] A Character can heal
     - [ ] A Character has max health
     - [ ] A Character cannot over-heal

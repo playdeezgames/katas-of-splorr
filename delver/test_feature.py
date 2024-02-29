@@ -22,8 +22,6 @@ def test_feature_aware_of_room_when_removed():
     assert sut.room is None
 
 
-
-
 def test_feature_may_not_be_removed_from_room_it_is_not_in():
     sut = feature.Feature()
     my_room = room.Room()
