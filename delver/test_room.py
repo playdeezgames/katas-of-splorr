@@ -187,4 +187,3 @@ def test_room_remove_feature():
     sut.add_feature(my_feature)
     sut.remove_feature(my_feature)
     assert not sut.has_feature(my_feature)
-

@@ -6,7 +6,7 @@ import item
 
 
 def __create_character_sut(my_room):
-    return character.Character( my_room)
+    return character.Character(my_room)
 
 
 def test_character_exists_and_initially_faces_north():
@@ -194,5 +194,3 @@ def test_character_leaves_corpse():
     assert my_corpse.get_inventory().contains_item(my_item)
     assert not my_room.contains_character(sut)
     assert my_room.has_feature(my_corpse)
-
-

@@ -1,4 +1,4 @@
-import  inventory
+import inventory
 
 
 class Feature:
