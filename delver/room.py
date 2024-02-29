@@ -8,6 +8,7 @@ class Room:
         self.neighbors = [None for _ in range(len(direction.VALID_DIRECTIONS))]
         self.characters = []
         self.inventory = inventory.Inventory()
+        self.features = []
 
     def has_exit(self, exit_direction) -> bool:
         return self.exits[exit_direction]

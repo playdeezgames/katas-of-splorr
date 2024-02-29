@@ -151,3 +151,8 @@ def test_assign_neighbor_for_room():
 def test_room_has_inventory():
     sut = room.Room()
     assert sut.get_inventory() is not None
+
+
+def test_room_has_no_features_initially():
+    sut = room.Room()
+    assert len(sut.features) == 0

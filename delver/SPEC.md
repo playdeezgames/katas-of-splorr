@@ -51,6 +51,11 @@
       - [x] Character is "destroyed" when dead
   - [ ] Features exist
     - [ ] Features exist in rooms
+      - [ ] Room is aware of Feature
+        - [ ] Check that a feature is contained in a room
+        - [ ] Add a Feature to a Room
+        - [ ] Remove a Feature from a Room
+      - [ ] Feature is aware of Room
       - [ ] Corpse Feature
     - [ ] Features have an inventory
     - [ ] A Character leaves a corpse when he dies, with all the items from the character in the feature
