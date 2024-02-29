@@ -36,3 +36,6 @@ class Room:
 
     def get_inventory(self):
         return self.inventory
+
+    def has_feature(self, my_feature):
+        pass

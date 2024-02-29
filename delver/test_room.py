@@ -1,6 +1,7 @@
 import pytest
 
 import character
+import feature
 import room
 import direction
 
@@ -156,3 +157,8 @@ def test_room_has_inventory():
 def test_room_has_no_features_initially():
     sut = room.Room()
     assert len(sut.features) == 0
+
+def test_room_check_for_feature():
+    sut = room.Room()
+    my_feature = feature.Feature()
+    assert not sut.has_feature(my_feature)
