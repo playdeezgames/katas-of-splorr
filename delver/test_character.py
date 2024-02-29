@@ -139,3 +139,12 @@ def test_character_pick_up_item():
     sut.pick_up_item(my_item)
     assert not my_room.get_inventory().contains_item(my_item)
     assert sut.get_inventory().contains_item(my_item)
+
+
+def test_character_cannot_pick_up_item_not_in_room():
+    my_room = room.Room()
+    my_item = item.Item()
+    sut = __create_character_sut(my_room)
+    sut.pick_up_item(my_item)
+    assert not my_room.get_inventory().contains_item(my_item)
+    assert not sut.get_inventory().contains_item(my_item)
