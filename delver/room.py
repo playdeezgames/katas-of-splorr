@@ -37,5 +37,8 @@ class Room:
     def get_inventory(self):
         return self.inventory
 
-    def has_feature(self, my_feature):
-        pass
+    def has_feature(self, feature):
+        return feature in self.features
+
+    def add_feature(self, feature):
+        self.features.append(feature)
