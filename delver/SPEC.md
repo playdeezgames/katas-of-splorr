@@ -35,10 +35,10 @@
   - [x] Items may be removed from an inventory
   - [x] A Room has an inventory
   - [x] A Character has an inventory
-  - [ ] A Character may pick up an item
-    - [ ] Item must be in Room's inventory that Character is in
-    - [ ] Item will leave Room's inventory
-    - [ ] Item will enter Character's inventory
+  - [x] A Character may pick up an item
+    - [x] Item must be in Room's inventory that Character is in
+    - [x] Item will leave Room's inventory
+    - [x] Item will enter Character's inventory
   - [ ] A Character may drop an item
     - [ ] Item must be in Character's inventory
     - [ ] Item will leave Character's inventory
