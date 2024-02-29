@@ -182,12 +182,17 @@ def test_character_takes_damage():
     assert sut.health == 2
 
 
-def test_character_drops_loot():
+def test_character_leaves_corpse():
     my_room = room.Room()
     my_item = item.Item()
     sut = __create_character_sut(my_room)
     sut.get_inventory().add_item(my_item)
+    assert len(my_room.features) == 0
     sut.take_damage(3)
-    assert my_room.get_inventory().contains_item(my_item)
+    assert len(my_room.features) == 1
+    my_corpse = my_room.features[0]
+    assert my_corpse.get_inventory().contains_item(my_item)
     assert not my_room.contains_character(sut)
+    assert my_room.has_feature(my_corpse)
+
 

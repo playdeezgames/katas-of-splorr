@@ -1,4 +1,5 @@
 import direction
+import feature
 import inventory
 
 
@@ -68,6 +69,9 @@ class Character:
     def take_damage(self, damage):
         self.health -= damage
         if self.health <= 0:
+            my_corpse = feature.Feature()
+            self.get_room().add_feature(my_corpse)
             for item in self.get_inventory().items:
-                self.drop_item(item)
+                self.get_inventory().remove_item(item)
+                my_corpse.get_inventory().add_item(item)
             self.__remove_from_room()
