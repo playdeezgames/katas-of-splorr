@@ -1,2 +1,3 @@
 class Feature:
-    pass
+    def __init__(self):
+        self.room = None
