@@ -53,3 +53,7 @@ class Character:
 
     def get_inventory(self):
         return self.inventory
+
+    def pick_up_item(self, item):
+        self.get_room().get_inventory().remove_item(item)
+        self.get_inventory().add_item(item)

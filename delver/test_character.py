@@ -2,6 +2,7 @@ import pytest
 import character
 import direction
 import room
+import item
 
 
 def __create_character_sut(my_room):
@@ -128,3 +129,13 @@ def test_character_has_inventory():
     my_room = room.Room()
     sut = __create_character_sut(my_room)
     assert sut.get_inventory() is not None
+
+
+def test_character_pick_up_item():
+    my_room = room.Room()
+    my_item = item.Item()
+    my_room.get_inventory().add_item(my_item)
+    sut = __create_character_sut(my_room)
+    sut.pick_up_item(my_item)
+    assert not my_room.get_inventory().contains_item(my_item)
+    assert sut.get_inventory().contains_item(my_item)
