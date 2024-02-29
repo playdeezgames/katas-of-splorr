@@ -43,12 +43,12 @@
     - [x] Item must be in Character's inventory
     - [x] Item will leave Character's inventory
     - [x] Item will enter Room inventory that the Character is in
-  - [ ] A Character can die
+  - [x] A Character can die
     - [x] A Character has health
-    - [ ] A Character can take damage
-    - [ ] When a Character reaches zero health, he dies
-      - [ ] Drops all item when dying
-      - [ ] Character is destroyed when dead
+    - [x] A Character can take damage
+    - [x] When a Character reaches zero health, he dies
+      - [x] Drops all item when dying
+      - [x] Character is "destroyed" when dead
   - [ ] Features exist
     - [ ] Features exist in rooms
       - [ ] Corpse Feature

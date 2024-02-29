@@ -67,3 +67,7 @@ class Character:
 
     def take_damage(self, damage):
         self.health -= damage
+        if self.health <= 0:
+            for item in self.get_inventory().items:
+                self.drop_item(item)
+            self.__remove_from_room()

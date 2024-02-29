@@ -180,3 +180,14 @@ def test_character_takes_damage():
     sut = __create_character_sut(my_room)
     sut.take_damage(1)
     assert sut.health == 2
+
+
+def test_character_drops_loot():
+    my_room = room.Room()
+    my_item = item.Item()
+    sut = __create_character_sut(my_room)
+    sut.get_inventory().add_item(my_item)
+    sut.take_damage(3)
+    assert my_room.get_inventory().contains_item(my_item)
+    assert not my_room.contains_character(sut)
+
