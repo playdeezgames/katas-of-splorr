@@ -146,3 +146,8 @@ def test_assign_neighbor_for_room():
     assert sut.has_neighbor(given_direction)
     actual = sut.get_neighbor(given_direction)
     assert actual == other_room
+
+
+def test_room_has_inventory():
+    sut = room.Room()
+    assert sut.get_inventory() is not None

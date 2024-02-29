@@ -1,5 +1,5 @@
-import character
 import direction
+import inventory
 
 
 class Room:
@@ -7,6 +7,7 @@ class Room:
         self.exits = [False for _ in range(len(direction.VALID_DIRECTIONS))]
         self.neighbors = [None for _ in range(len(direction.VALID_DIRECTIONS))]
         self.characters = []
+        self.inventory = inventory.Inventory()
 
     def has_exit(self, exit_direction) -> bool:
         return self.exits[exit_direction]
@@ -31,3 +32,6 @@ class Room:
 
     def get_neighbor(self, which_direction):
         return self.neighbors[which_direction]
+
+    def get_inventory(self):
+        return self.inventory
