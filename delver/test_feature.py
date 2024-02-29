@@ -29,3 +29,8 @@ def test_feature_may_not_be_removed_from_room_it_is_not_in():
     my_room.add_feature(sut)
     other_room.remove_feature(sut)
     assert sut.room is not None
+
+
+def test_feature_has_inventory():
+    sut = feature.Feature()
+    assert sut.get_inventory() is not None
