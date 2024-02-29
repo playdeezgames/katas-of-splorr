@@ -41,4 +41,5 @@ class Room:
         return feature in self.features
 
     def add_feature(self, feature):
-        self.features.append(feature)
+        if not self.has_feature(feature):
+            self.features.append(feature)
