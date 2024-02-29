@@ -64,3 +64,6 @@ class Character:
         if self.get_inventory().contains_item(item):
             self.get_inventory().remove_item(item)
             self.get_room().get_inventory().add_item(item)
+
+    def take_damage(self, damage):
+        self.health -= damage

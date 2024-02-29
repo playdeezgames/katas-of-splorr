@@ -44,7 +44,7 @@
     - [x] Item will leave Character's inventory
     - [x] Item will enter Room inventory that the Character is in
   - [ ] A Character can die
-    - [ ] A Character has health
+    - [x] A Character has health
     - [ ] A Character can take damage
     - [ ] When a Character reaches zero health, he dies
       - [ ] Drops all item when dying
@@ -53,7 +53,7 @@
     - [ ] Features exist in rooms
       - [ ] Corpse Feature
     - [ ] Features have an inventory
-    - [ ] A Character leaves a corpse when he dies, with all of the items from the character in the feature
+    - [ ] A Character leaves a corpse when he dies, with all the items from the character in the feature
   - [ ] A Character can heal
     - [ ] A Character has max health
-    - [ ] A Character cannot overheal
+    - [ ] A Character cannot over-heal

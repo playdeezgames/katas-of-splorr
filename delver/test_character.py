@@ -173,3 +173,10 @@ def test_character_has_health():
     my_room = room.Room()
     sut = __create_character_sut(my_room)
     assert sut.health == 3
+
+
+def test_character_takes_damage():
+    my_room = room.Room()
+    sut = __create_character_sut(my_room)
+    sut.take_damage(1)
+    assert sut.health == 2
